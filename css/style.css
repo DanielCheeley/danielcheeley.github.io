@@ -1,0 +1,140 @@
+body {
+  background-image: url(/assets/images/windowsBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 15px;
+  line-height: 1.2;
+  -webkit-font-smoothing: none; /* Chrome/Safari */
+  -moz-osx-font-smoothing: auto; /* Firefox */
+  display: flex;               /* enables flexbox layout */
+  justify-content: center;     /* centers horizontally */
+  margin-top: 150px;
+  margin-bottom: 150px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/*text and content styling*/
+h2 {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/*retro window-----------------------------------------------------------------------------*/
+.window {
+  width: 50%;
+  height: 650px;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  background: #c0c0c0;
+  flex-direction: column;
+}
+
+.title-bar {
+  background: linear-gradient(to bottom, #000080, #000060);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.title-button {
+  width: 16px;
+  height: 16px;
+  background: #c0c0c0;
+  border: 1px solid #fff;
+  box-shadow: inset -1px -1px 0 #000;
+  text-align: center;
+  line-height: 14px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.content {
+  height: 600px;
+  flex: 1;
+  padding: 10px;
+  background: #edece8;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow-y: scroll;
+}
+
+
+
+/*scrollbar---------------------------------------------------------------------------------*/
+/*new scrollbar*/
+.content::-webkit-scrollbar {
+  width: 20px;                  /* thick, old-school scrollbar */
+  background: #c0c0c0;          /* gray track */
+  border-left: 2px solid #fff;  /* raised edge look */
+  border-top: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #c0c0c0;          /* base gray */
+  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080; /* creates 3D inset */
+}
+
+/* The draggable “thumb” */
+.content::-webkit-scrollbar-thumb {
+  background: #808080;          /* darker gray thumb */
+  border: 2px solid #c0c0c0;     /*inner border for 3D look */
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000; /* beveled edges */
+}
+
+/* Hover effect — slightly lighter */
+.content::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* The corner where horizontal/vertical bars meet */
+.content::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+/* === Scrollbar arrows === */
+.content::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+  height: 20px;  /* square arrow buttons */
+}
+
+/* Top (decrement) button */
+.content::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Bottom (increment) button */
+.content::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}

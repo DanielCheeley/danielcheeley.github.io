@@ -2,21 +2,19 @@ body {
   background-image: url(/assets/images/windowsBackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
   font-size: 15px;
   line-height: 1.2;
   -webkit-font-smoothing: none; /* Chrome/Safari */
   -moz-osx-font-smoothing: auto; /* Firefox */
   display: flex;               /* enables flexbox layout */
   justify-content: center;     /* centers horizontally */
-  margin-top: 150px;
-  margin-bottom: 150px;
   height: 100vh;
   overflow: hidden;
 }
 
 
-/*text and content styling*/
+/*text and content styling----------------------------------------------------------------------------------------------*/
 h2 {
   text-align: center;
 }
@@ -26,14 +24,149 @@ img {
   height: auto;
 }
 
+.divider {
+  width: 100%;
+}
+
+/*title styling-----------------------------------------------------------------------------------------------------------------*/
+#title {
+  position: absolute;
+  top: 0;
+  width: 40%;
+}
+#altTitle {
+  position: absolute;
+  top: 70px;
+  transform: rotate(6deg);
+  width: 15%;
+}
+
+/*desktop icon styling----------------------------------------------------------------------------------------------------------*/
+#icon1 {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 2%;
+}
+#iconText1 {
+  color: white;
+  position: absolute;
+  top: 35px;
+  left: 10px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#icon2 {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  width: 2%;
+}
+#iconText2 {
+  color: white;
+  position: absolute;
+  top: 105px;
+  left: 27px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#icon3 {
+  position: absolute;
+  top: 10px;
+  left: 120px;
+  width: 2%;
+}
+#iconText3 {
+  color: white;
+  position: absolute;
+  top: 35px;
+  left: 100px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*main window content styling---------------------------------------------------------------------------------------------------*/
+#mainText {
+  position: absolute;
+  word-break: normal;
+  word-wrap: break-word;
+  margin: 15px;
+  display: inline;
+  padding: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+/*images*/
+#mainImage1 {
+  margin: 15px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+
+#stamp1 {
+  position: absolute;
+  top: 250px;
+  left: 770px;
+}
 
 
+/*old school button styling-----------------------------------------------------------------------------------------------------*/
+a {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  width: 77%;
+  background: linear-gradient(to bottom, #66ccff 0%, #0073e6 100%);
+  border: 1px solid #0059b3;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin: 20px 0;
+}
 
+/* glossy shine layer */
+a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+}
+
+/* hover and active effects */
+a:hover {
+  background: linear-gradient(to bottom, #80d4ff 0%, #0099ff 100%);
+}
+
+a:active {
+  background: linear-gradient(to bottom, #0073e6 0%, #4db8ff 100%);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+  transform: translateY(1px);
+}
 
 
 
 /*retro window-----------------------------------------------------------------------------*/
 .window {
+  position: absolute;
+  left: 525px;
+  top: 200px;
   width: 50%;
   height: 650px;
   border: 2px solid #000;
@@ -42,11 +175,12 @@ img {
   flex-direction: column;
 }
 
-/*side window 1*/
+/*side window left*/
 .windowSide1 {
   position: absolute;
   left: 120px;
-  width: 19%;
+  top: 200px;
+  width: 18.2%;
   height: 650px;
   border: 2px solid #000;
   box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
@@ -54,10 +188,11 @@ img {
   flex-direction: column;
 }
 
-/*side window 2*/
+/*side window right*/
 .windowSide2 {
   position: absolute;
   right: 80px;
+  top: 200px;
   width: 14%;
   height: 650px;
   border: 2px solid #000;
@@ -98,6 +233,7 @@ img {
 }
 
 .content {
+  position: relative;
   height: 600px;
   flex: 1;
   padding: 10px;

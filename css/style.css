@@ -270,7 +270,7 @@ a:active {
   body {
     background-image: url(../assets/images/mobileBackgroundFinal.png);
     background-size: cover;
-  background-repeat: no-repeat;
+    background-repeat: no-repeat;
   }
 }
 

@@ -12,16 +12,19 @@
   <img src="assets/images/titleTop.png" alt="title" id="title">
   <img src="assets/images/90sStyle-90sStyle.png" alt="style" id="altTitle">
 
-  <img src="assets/images/recycle_bin.png" alt="bin" id="icon1">
-  <p id="iconText1">Recycle Bin</p>
-  <img src="assets/images/directory_open_file_mydocs-4.png" alt="folder" id="icon2">
-  <p id="iconText2">Folder</p>
-  <img src="assets/images/networking.png" alt="networking" id="icon3">
-  <p id="iconText3">Networking</p>
+  <div class="mobileHide">
+    <img src="assets/images/recycle_bin.png" alt="bin" id="icon1">
+    <p id="iconText1">Recycle Bin</p>
+    <img src="assets/images/directory_open_file_mydocs-4.png" alt="folder" id="icon2">
+    <p id="iconText2">Folder</p>
+    <img src="assets/images/networking.png" alt="networking" id="icon3">
+    <p id="iconText3">Networking</p>
+  </div>
+
 <div class="desktop">
 
   <!--Left side window------------------------------------------------------------------------->
-  <div class="windowSide1">
+  <div class="windowSide1 mobileHide">
     <div class="title-bar">
       <div class="title">Media Window</div>
       <div class="title-bar-buttons">
@@ -80,17 +83,27 @@
         <div class="title-button">X</div>
       </div>
     </div>
-    <div class="content">
-      <h2>This is a homepage for all of my sites, projects and pages</h2>
-      <hr>
-      <img src="assets/images/me-on-mountains-reframed.png" alt="me1" id="mainImage1">
-      <p id="mainText">I styled this site to resemble a windows 98 desktop to bring out my creativity and expressiveness. I love  designing webpages in unique ways to show that something as simple as web browsing can be fun and interactive. Since the   internet is so present in our lives people become increasingly aware at the lack of design choices people make. Therefore   I have taken it upon myself to make every page I create a different and unique style.</p>
-      <img id="stamp1" src="assets/images/d114.png" alt="twilightStamp">
+    <div class="scrollWrapper">
+      <div class="mainWindowContent">
+        <h2 id="mainh2">This is my landing page for all my other sites</h2>
+        <div class="row">
+        <img src="assets/images/me-on-mountains-reframed.png" alt="me1" id="mainImage1">
+        <p class="mainText"><strong>Why These Design Choices?</strong><br>I styled this site to resemble a windows 98 desktop to bring out my creativity and expressiveness. I love designing webpages in unique ways to show that something as simple as web browsing can be fun and interactive. Since the internet is so present in our lives people become increasingly aware at the lack of creative design choices people   make. Therefore I have taken it upon myself to make every page I create a different and unique style. <img src="assets/images/d13.gif" alt="" id="stamp"></p>
+        </div>
+        <div class="row">
+          <p class="mainText"><strong>Who Am I?</strong><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum fuga consequuntur vero impedit  corporis quidem nisi aut rerum quasi officia nam facilis quaerat maiores ratione quas adipisci et, alias molestiae. <img src="assets/images/d114.png" alt="twilightStamp" id="stamp2"></p>
+          <img src="assets/images/hikePhoto.JPG" alt="hikePhoto" id="mainImage2">
+        </div>
+        <div class="row">
+        <img src="assets/images/Mymotorcyle2.jpeg" alt="me1" id="mainImage3">
+        <p class="mainText">I styled this site to resemble a windows 98 desktop to bring out my creativity and expressiveness. I love designing webpages in unique ways to show that something as simple as web browsing can be fun and interactive. Since the internet is so present in our lives people become increasingly aware at the lack of design choices people   make. Therefore I have taken it upon myself to make every page I create a different and unique style.</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!--right side window------------------------------------------------------------------------>
-  <div class="windowSide2">
+  <div class="windowSide2 mobileHide">
     <div class="title-bar">
       <div class="title">Redirects</div>
       <div class="title-bar-buttons">
@@ -106,7 +119,7 @@
       <hr>
       <a>Blog</a>
       <hr>
-      <a>Portfolio</a>
+      <a>Changelog</a>
       <hr>
       <a>Portfolio</a>
       <hr>

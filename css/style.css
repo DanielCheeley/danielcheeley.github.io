@@ -13,6 +13,116 @@ body {
   overflow: hidden;
 }
 
+/*retro window-----------------------------------------------------------------------------*/
+.desktop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2vw;          /* responsive spacing */
+  width: 100%;
+  padding: 5vh 2vw;
+  box-sizing: border-box;
+}
+
+
+.window {
+  width: 80%;
+  min-width: 300px;    /* prevents shrinking too much */
+  max-width: 1000px;    /* prevents stretching too wide */
+  height: 650px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+
+  overflow: hidden;
+}
+
+
+/*side window left*/
+.windowSide1,
+.windowSide2 {
+  width: 18.92%;
+  min-width: 180px;
+  max-width: 500px;
+  height: 650px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+
+
+
+.title-bar {
+  background: linear-gradient(to bottom, #000080, #000060);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.title-button {
+  width: 16px;
+  height: 16px;
+  background: #c0c0c0;
+  border: 1px solid #fff;
+  box-shadow: inset -1px -1px 0 #000;
+  text-align: center;
+  line-height: 14px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.mainWindowContent {
+  display: flex;
+  flex-direction: row;   /* ← horizontal layout */
+  align-items: flex-start; /* ← items align at the top */
+  flex-wrap: wrap;
+  padding: 10px;
+  background: #edece8;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.scrollWrapper {
+  height: 650px;
+  overflow-y: scroll;
+}
+.content {
+  position: relative;
+  height: 600px;
+  flex: 1;
+  padding: 10px;
+  background: #edece8;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow-y: scroll;
+}
+
+
 
 /*text and content styling----------------------------------------------------------------------------------------------*/
 h2 {
@@ -87,31 +197,67 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+.mainWindowContent .row {
+  display: flex;        /* make the row a flex container */
+  justify-content: center;  /* vertically align items, optional */
+  gap: 20px;            /* spacing between items */
+}
+
 /*main window content styling-----------------------------------------------------------------------------------------------*/
-#mainText {
-  position: absolute;
-  word-break: normal;
-  word-wrap: break-word;
-  margin: 15px;
-  display: inline;
+#mainh2 {
+  flex: 0 0 100%;
+  justify-content: center;
+}
+.row h3 {
+  flex: 0 0 auto; /* prevent it from stretching */
+  margin-left: 700%;
+}
+.mainText {
+  margin-top: 0;
+  margin-left: 15px;
+  display: block;   /* needed for flexbox sizing */
+  max-width: 60%;   /* keeps room for the image */
   padding: 5px;
   border-style: solid;
   border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
 }
+
 /*images*/
 #mainImage1 {
-  margin: 15px;
+  margin-bottom: 20px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+#mainImage2 {
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+#mainImage3 {
+  margin-bottom: 20px;
   width: 30%;
   border-style: solid;
   border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
 }
 
-#stamp1 {
-  position: absolute;
-  top: 250px;
-  left: 770px;
+#stamp {
+  float: right;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  transform: rotate(7deg);
 }
-
+#stamp2 {
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  transform: rotate(-7deg);
+}
 
 /*old school button styling----------------------------------------------------------------------------------------------*/
 a {
@@ -162,123 +308,45 @@ a:active {
 
 
 
-/*retro window-----------------------------------------------------------------------------*/
-.desktop {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2vw;          /* responsive spacing */
-  width: 100%;
-  padding: 5vh 2vw;
-  box-sizing: border-box;
-}
-
-
-.window {
-  width: 80%;
-  min-width: 300px;    /* prevents shrinking too much */
-  max-width: 1000px;    /* prevents stretching too wide */
-  height: 650px;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
-}
-
-
-/*side window left*/
-.windowSide1,
-.windowSide2 {
-  width: 18.92%;
-  min-width: 180px;
-  max-width: 500px;
-  height: 650px;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
-}
-
-
-
-.title-bar {
-  background: linear-gradient(to bottom, #000080, #000060);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px 5px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.title-bar-buttons {
-  display: flex;
-  gap: 2px;
-}
-
-.title-button {
-  width: 16px;
-  height: 16px;
-  background: #c0c0c0;
-  border: 1px solid #fff;
-  box-shadow: inset -1px -1px 0 #000;
-  text-align: center;
-  line-height: 14px;
-  font-weight: bold;
-  color: #000;
-  cursor: pointer;
-}
-
-.content {
-  position: relative;
-  height: 600px;
-  flex: 1;
-  padding: 10px;
-  background: #edece8;
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  overflow-y: scroll;
-}
 
 
 
 /*for mobile-----------------------------------------------------------------------------------------*/
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .desktop {
     flex-direction: column;
     align-items: center;
   }
 
-  .windowSide1,
-  .windowSide2,
+  .mobileHide{
+    display: none;
+  }
+
   .window {
-    width: 90%;
+    width: 88%;
     max-width: none;
     margin-bottom: 20px;
+    max-height: 520px;
   }
 
   body {
     background-image: url(../assets/images/mobileBackgroundFinal.png);
+    background-position: -342px;
     background-size: cover;
+    background-size: 200%;
     background-repeat: no-repeat;
+  }
+
+  .desktop {
+    margin-top: -100px;
   }
 }
 
 
 
 
-/*scrollbar---------------------------------------------------------------------------------*/
-/*new scrollbar*/
+/*scrollbar----------------------------------------------------------------------------*/
+/*for side window scrollbars------------------------------------------------------------------------------*/
 .content::-webkit-scrollbar {
   width: 20px;                  /* thick, old-school scrollbar */
   background: #c0c0c0;          /* gray track */
@@ -327,6 +395,55 @@ a:active {
 
 /* Bottom (increment) button */
 .content::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/*for main window scrollbar (needed because of a glitch in webbrowser scrollbar rendering------------------*/
+.scrollWrapper::-webkit-scrollbar {
+  width: 20px;
+  background: #c0c0c0;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.scrollWrapper::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080;
+}
+
+.scrollWrapper::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+}
+
+.scrollWrapper::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.scrollWrapper::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+.scrollWrapper::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+  height: 20px;
+}
+
+.scrollWrapper::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.scrollWrapper::-webkit-scrollbar-button:vertical:increment {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
   background-repeat: no-repeat;
   background-position: center;

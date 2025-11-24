@@ -151,7 +151,7 @@ img {
   width: 15%;
 }
 
-/*desktop icon styling----------------------------------------------------------------------------------------------------------*/
+/*desktop icon styling------------------------------------------------------------------------------------------------------*/
 #icon1 {
   position: absolute;
   top: 10px;
@@ -258,6 +258,13 @@ img {
   margin-right: 20px;
   transform: rotate(-7deg);
 }
+#stamp3 {
+  float: right;
+  padding: 10px;
+  margin-top: 25px;
+  margin-right: 20px;
+  transform: rotate(7deg);
+}
 
 /*old school button styling----------------------------------------------------------------------------------------------*/
 a {
@@ -307,10 +314,44 @@ a:active {
 }
 
 
+.marqueeText {
+  overflow: hidden;
+  white-space: nowrap;
+  background:#edece8;
+  color: black;
+}
 
+.marqueeText-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 120s linear infinite;
+}
 
+.marquee-content {
+  padding-right: 1rem; /* space between loops */
+}
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* move the width of one copy */
+  }
+}
 
+#newsTitle {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.icon {
+  color: #ff0000;
+}
+.deskHide {
+    display: none;
+  }
 /*for mobile-----------------------------------------------------------------------------------------*/
 @media (max-width: 500px) {
   .desktop {
@@ -339,6 +380,19 @@ a:active {
 
   .desktop {
     margin-top: -100px;
+  }
+  .mainText {
+    width: 100%;
+  }
+  .mobileImage {
+    width: 60%;
+    margin-left: 4%;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+  }
+  .deskHide{
+    display: block;
   }
 }
 

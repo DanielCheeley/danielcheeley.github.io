@@ -9,3 +9,5 @@ window.addEventListener("load", function() {
   }
 });
 */
+
+let recycleBin = document.getElementById("recycleBin");

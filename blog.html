@@ -7,9 +7,14 @@
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
   <link rel="stylesheet" href="css/blog.css">
+  <script src="js/blog.js" defer></script>
 </head>
 <body>
-  <h1>My Blog</h1>
+  <div class="titleRow">
+    <img src="assets/images/me-in-car.jpeg" alt="me">
+    <h1>My Blog</h1>
+    <p id="quote">“Preserve your memories, keep them well, what you forget you can never retell.” &nbsp; &mdash; Louisa May Alcott</p>
+  </div>
 <div class="grid">
   <div class="square" id="navbar">
     <nav>
@@ -23,28 +28,49 @@
 
   <div class="square span" id="sidebar">
     <h3>Search:</h3>
-    <input type="text" placeholder="Search blog...">
+    <input type="text" placeholder="Search blog..." id="search" autocomplete="off">
+    <p class="textCentered"><em>Search by title or date/time here.</em></p>
+    <br>
+    <h3>Click to filter by badge:</h3>
+    <p><em class="smallText qna">What are badges?</em></p>
+    <ul id="badgeList">
+      <li class="badgeItem"><a>Milestone</a></li>
+      <li class="badgeItem"><a>Favorites</a></li>
+      <li class="badgeItem"><a>Projects</a></li>
+      <li class="badgeItem"><a>Life Update</a></li>
+      <li class="badgeItem"><a>Journal</a></li>
+      <li class="badgeItem"><a>Story</a></li>
+      <li class="badgeItem"><a>Thoughts</a></li>
+    </ul>
   </div>
-  <div class="square content">
-    <h3>Welcome To My Blog</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rerum hic laborum itaque officiis cumque modi aut facere praesentium similique totam saepe voluptates accusamus corrupti, tempore amet dolore dolorum explicabo.</p>
+  <div class="square content welcome">
+    <h3>Welcome To My Blog!</h3>
+    <p>On this page I will put everything slightly significant that happens in my life, as well as anything I am thinking or feeling when writing. You can use the search bar on the left to look for specific titles or dates. I will also label each of my posts are there will be a label selector on the left side as well if you want to read about specific events.</p>
   </div>
-  <div class="square content full-width">
-    <h3>Welcome To My Blog</h3>
-    <p>Warm and fragrant.</p>
+
+  <h2 id="postTitle">Blog Posts:<em class="smallText">(Newest To Oldest)</em></h2>
+
+  <div class="square content full-width" data-title="Creating this website" data-date="12/3/25 9:00am" data-badge="everyday">
+    <h3><span class="badge">Projects</span> &nbsp; Creating this website | 12/3/25 9:00am</h3>
+    <p>Section Text</p>
   </div>
-  <div class="square content full-width">
-    <h3>Vanilla Spice</h3>
-    <p>Warm and fragrant.</p>
+
+  <div class="square content full-width" data-title="random thing here" data-date="2/23/22 4:00am">
+    <h3><span class="badge">Badge</span> &nbsp; Random thing here | 2/23/22 4:00am</h3>
+    <p>Section text</p>
   </div>
-  <div class="square content full-width">
-    <h3>Vanilla Spice</h3>
-    <p>Warm and fragrant.</p>
+
+  <div class="square content full-width" data-title="another thing going" data-date="10/6/24 7:00pm">
+    <h3><span class="badge">Badge</span> &nbsp; another thing going | 10/6/24 7:00pm</h3>
+    <p>Section Text</p>
   </div>
-  <div class="square content full-width">
-    <h3>Vanilla Spice</h3>
-    <p>Warm and fragrant.</p>
+
+  <div class="square content full-width" data-title="Will this work" data-date="7/16/25 12:00am">
+    <h3><span class="badge">Badge</span> &nbsp; Will this work | 7/16/25 12:00am</h3>
+    <p>Section text</p>
   </div>
 </div>
+
+<div id="paginationControls" class="pagination"></div>
 </body>
 </html>

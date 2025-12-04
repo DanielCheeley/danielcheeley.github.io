@@ -8,7 +8,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 200px 1fr; /* sidebar + main */
-  grid-template-rows: 70px 410px 80px minmax(300px, auto);
+  grid-template-rows: 70px 410px 120px minmax(300px, auto);
   grid-auto-rows: 300px;
   gap: 10px;
   grid-auto-flow: dense;
@@ -147,6 +147,18 @@ nav a:last-child { /*get rid of border for last link*/
 }
 .badgeItem:hover {
   cursor: pointer;
+}
+
+.clearBtn {
+  cursor: pointer;
+  color: #f8d1a7;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #1a0f06;
+  font-size: 1.5em;
 }
 
 #postTitle {

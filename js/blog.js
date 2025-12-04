@@ -1,18 +1,23 @@
+
+//get search box
 const searchBar = document.getElementById("search");
+//get all posts, since all posts use the .full-width class
 let allPosts = Array.from(document.querySelectorAll(".full-width"));
+//makes a copy of the original list so that it can be changed(for when filters are active)
 let filteredPosts = [...allPosts];
 
+//change the amount of posts per page and set current page
 const postsPerPage = 3;
 let currentPage = 1;
 
-// --- Re-render the list based on what posts are filtered ---
+//Re-render the list based on what posts are filtered
 function renderPage(page) {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   // Fix page bounds
   currentPage = Math.max(1, Math.min(page, totalPages || 1));
 
-  // Hide ALL posts first
+  // Hide all posts first
   allPosts.forEach(p => p.style.display = "none");
 
   // Figure out which ones to show
@@ -26,7 +31,7 @@ function renderPage(page) {
   renderPaginationControls(totalPages);
 }
 
-// --- Pagination buttons ---
+//Pagination buttons
 function renderPaginationControls(totalPages) {
   const container = document.getElementById("paginationControls");
   container.innerHTML = "";
@@ -49,11 +54,29 @@ function renderPaginationControls(totalPages) {
   }
 }
 
-// --- SEARCH LOGIC (LIVE) ---
+// Badge logic
+let badges = document.querySelectorAll(".badgeItem");
+
+badges.forEach(badge => {
+  badge.addEventListener("click", function () {
+    let clickedBadge = badge.dataset.badge.toLowerCase();
+
+    filteredPosts = allPosts.filter(post => {
+      let postBadge = (post.dataset.badge || "").toLowerCase();
+      return postBadge.includes(clickedBadge);
+    });
+
+    currentPage = 1;
+    renderPage(currentPage);
+  });
+});
+
+
+//SEARCH LOGIC (LIVE)
 searchBar.addEventListener("input", function () {
   let query = searchBar.value.toLowerCase();
 
-  // Filter posts by title/date
+  //Filter posts by title/date
   filteredPosts = allPosts.filter(post => {
     let title = post.dataset.title.toLowerCase();
     let date = post.dataset.date.toLowerCase();
@@ -66,5 +89,23 @@ searchBar.addEventListener("input", function () {
   renderPage(currentPage);
 });
 
+// --- CLEAR ALL FILTERS ---
+document.getElementById("clearFilters").addEventListener("click", function () {
+  // Reset search bar
+  searchBar.value = "";
+
+  // Reset filtered posts to show everything
+  filteredPosts = [...allPosts];
+
+  // Reset page
+  currentPage = 1;
+
+  // Re-render the full list
+  renderPage(currentPage);
+});
+
+
 // Initial load
 renderPage(1);
+
+

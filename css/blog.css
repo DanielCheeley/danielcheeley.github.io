@@ -8,8 +8,8 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 200px 1fr; /* sidebar + main */
-  grid-template-rows: 70px 410px 120px minmax(300px, auto);
-  grid-auto-rows: 300px;
+  grid-template-rows: 70px 410px 90px;
+  grid-auto-rows: 500px;
   gap: 10px;
   grid-auto-flow: dense;
 }
@@ -71,11 +71,27 @@ body {
   display: flex;
   align-items: center;
 }
-img {
+#heroImg {
   width: 10%;
   border-radius: 50%;
   margin-bottom: 40px;
   border: 5px #b08968 solid;
+}
+.bannerContainer {
+  margin-top: 10px;
+  width: 100%;      /* container width */
+  height: 250px;    /* fixed height or whatever you want */
+  overflow: hidden; /* crop anything outside */
+  border: 4px solid #1a0f06;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.bannerContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* maintains aspect ratio, fills container */
+  object-position: center; /* centers image inside container */
 }
 h1 {
   color: #f8d1a7;
@@ -195,9 +211,25 @@ nav a:last-child { /*get rid of border for last link*/
   font-size: 1.2rem;
 }
 
+.textImgContainer {
+  margin: 40px;
+  display: flex;          /* ← this aligns image + text on the same line */
+  flex-direction: row;
+  text-align: left;
+  gap: 50px;              /* space between them */
+}
 
+.textImgContainer img {
+  width: 400px;
+  height: 350px;
+  border: 8px solid #1a0f06;
+  border-radius: 15px;
+}
 
-
+.full-width:nth-child(even) .textImgContainer {
+  flex-direction: row-reverse;
+  text-align: right;
+}
 
 /* Chrome / Edge / Safari */
 #sidebar::-webkit-scrollbar {

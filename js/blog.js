@@ -105,6 +105,30 @@ document.getElementById("clearFilters").addEventListener("click", function () {
 });
 
 
+//Popup logic
+let openBtn = document.getElementById("openPopup");
+let closeBtn = document.getElementById("closePopup");
+let overlay = document.getElementById("popupOverlay");
+
+openBtn.addEventListener("click", () => {
+  overlay.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  overlay.classList.remove("active");
+});
+
+// Click outside popup closes it
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.classList.remove("active");
+  }
+});
+
+
+
+
+
 // Initial load
 renderPage(1);
 

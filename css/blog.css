@@ -256,3 +256,62 @@ nav a:last-child { /*get rid of border for last link*/
   scrollbar-width: thin;           /* small scrollbar */
   scrollbar-color: rgba(245, 225, 200, 0.4) transparent;
 }
+
+
+/*Popup Styling*/
+
+
+/* Overlay background */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 999;
+}
+
+/* Show the popup */
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Popup box */
+.popup {
+  text-align: center;
+  background: #181818;
+  padding: 25px 30px;
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: scale(0.8);
+  transition: 0.25s ease;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Scale in when active */
+.overlay.active .popup {
+  transform: scale(1);
+}
+
+/* Buttons */
+.open-btn, .close-btn {
+  background: #444;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.open-btn:hover,
+.close-btn:hover {
+  background: #666;
+}

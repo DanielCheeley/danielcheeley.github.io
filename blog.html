@@ -33,7 +33,7 @@
     <p class="textCentered"><em>Search by title or date/time here.</em></p>
     <br>
     <h3>Click to filter by badge:</h3>
-    <p><em class="smallText qna">What are badges?</em></p>
+    <p id="openPopup"><em class="smallText qna">What are badges?</em></p>
     <ul id="badgeList">
       <li class="badgeItem" data-badge="Milestone"><a>Milestone</a></li>
       <li class="badgeItem" data-badge="Favorites"><a>Favorites</a></li>
@@ -76,5 +76,14 @@
 </div>
 
 <div id="paginationControls" class="pagination"></div>
+
+<!--POPUP WINDOW FOR BADGES QUESTION-->
+<div id="popupOverlay" class="overlay">
+  <div class="popup">
+    <h2>What are badges?</h2>
+    <p>Badges are my way of filter my blog posts by class. If something is a big achivement it will be under milestone, and if its a post on one of my projects it will be under projects, Etc. Badges are a quick way for people to filter by what they really want to read.</p>
+    <button type="button" id="closePopup" class="close-btn">Close</button>
+  </div>
+</div>
 </body>
 </html>

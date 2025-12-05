@@ -43,13 +43,15 @@ body {
   align-items: center;
   justify-items: center;
   justify-content: center;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* Sidebar spans all rows except navbar */
 #sidebar {
   grid-column: 1;
   overflow-y: scroll;
-  border-top-left-radius: 15px;
+  border-top-left-radius: 0;
   border-bottom-left-radius: 15px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -57,7 +59,7 @@ body {
 .welcome {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  border-top-right-radius: 15px;
+  border-top-right-radius: 0;
   border-bottom-right-radius: 15px;
 }
 .content{
@@ -228,7 +230,6 @@ nav a:last-child { /*get rid of border for last link*/
 
 .full-width:nth-child(even) .textImgContainer {
   flex-direction: row-reverse;
-  text-align: right;
 }
 
 /* Chrome / Edge / Safari */

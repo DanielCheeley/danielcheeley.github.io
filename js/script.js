@@ -11,3 +11,17 @@ window.addEventListener("load", function() {
 */
 
 let recycleBin = document.getElementById("recycleBin");
+
+
+const modal = document.getElementById("modal");
+const imgNet = document.getElementById("icon3");
+const close = document.querySelector(".close");
+
+imgNet.onclick = () => modal.style.display = "block";
+close.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};

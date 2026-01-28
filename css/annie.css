@@ -1,0 +1,59 @@
+#imgHeader {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+nav ul li a {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: gold;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+nav ul li a:hover {
+  color: rgb(255, 187, 60);
+}
+
+nav ul li{
+  list-style-type: none;
+  display: inline;
+  margin-right: 20px;
+  align-items: center;
+}
+
+/* Wrapper for images in a row */
+#lineWrapper {
+  display: flex;           /* puts children in a row */
+  align-items: center;     /* vertically align them */
+  justify-content: flex-start; /* align to the left */
+  gap: 20px;               /* space between images */
+  margin: 20px auto;       /* some space around the wrapper */
+  width: auto;
+}
+
+/* Optional: scale images if needed */
+#lineWrapper img {
+  height: auto;
+  max-height: 350px;       /* adjust to make them smaller if needed */
+}
+
+
+#imgLineBorder {
+  
+}
+
+#imgWings {
+  height: 200px;
+}

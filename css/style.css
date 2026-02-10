@@ -455,7 +455,7 @@ img {
 }
 
 
-/*for main window scrollbar (needed because of a glitch in webbrowser scrollbar rendering------------------*/
+/*for main window scrollbar (needed because of a glitch in webbrowser scrollbar rendering-----------------------------------------*/
 .scrollWrapper::-webkit-scrollbar {
   width: 20px;
   background: #c0c0c0;

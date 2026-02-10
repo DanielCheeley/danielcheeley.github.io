@@ -7,6 +7,16 @@
   margin-left: auto;
   margin-right: auto;
 }
+#imgFooter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(180deg);
+}
 
 nav {
   display: flex;
@@ -49,11 +59,13 @@ nav ul li{
   max-height: 350px;       /* adjust to make them smaller if needed */
 }
 
-
-#imgLineBorder {
-  
-}
-
 #imgWings {
   height: 200px;
+}
+
+p {
+  font-size: 1.2em;
+  margin: 20px auto;
+  border: 2px solid gold;
+  padding: 20px;
 }

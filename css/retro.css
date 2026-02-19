@@ -1,0 +1,735 @@
+body {
+  background-image: url(/assets/images/windowsBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
+  font-size: 15px;
+  line-height: 1.2;
+  -webkit-font-smoothing: none; /* Chrome/Safari */
+  -moz-osx-font-smoothing: auto; /* Firefox */
+  display: flex;               /* enables flexbox layout */
+  justify-content: center;     /* centers horizontally */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*retro window-----------------------------------------------------------------------------*/
+.desktop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2vw;          /* responsive spacing */
+  width: 100%;
+  padding: 5vh 2vw;
+  box-sizing: border-box;
+}
+
+
+.window {
+  width: 80%;
+  min-width: 300px;    /* prevents shrinking too much */
+  max-width: 1000px;    /* prevents stretching too wide */
+  height: 650px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+
+  overflow: hidden;
+}
+
+
+/*side window left*/
+.windowSide1,
+.windowSide2 {
+  width: 18.92%;
+  min-width: 180px;
+  max-width: 500px;
+  height: 650px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+
+
+
+.title-bar {
+  background: linear-gradient(to bottom, #000080, #000060);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.title-button {
+  width: 16px;
+  height: 16px;
+  background: #c0c0c0;
+  border: 1px solid #fff;
+  box-shadow: inset -1px -1px 0 #000;
+  text-align: center;
+  line-height: 14px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.mainWindowContent {
+  display: flex;
+  flex-direction: row;   /* ← horizontal layout */
+  align-items: flex-start; /* ← items align at the top */
+  flex-wrap: wrap;
+  padding: 10px;
+  background: #edece8;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.scrollWrapper {
+  height: 650px;
+  overflow-y: scroll;
+}
+.content {
+  position: relative;
+  height: 600px;
+  flex: 1;
+  padding: 10px;
+  background: #edece8;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow-y: scroll;
+}
+
+
+
+/*text and content styling----------------------------------------------------------------------------------------------*/
+h2 {
+  text-align: center;
+}
+
+img {
+  width: 150px;
+  height: auto;
+}
+
+.divider {
+  width: 100%;
+}
+
+/*title styling-------------------------------------------------------------------------------------------------------------*/
+#title {
+  position: absolute;
+  top: 0;
+  width: 40%;
+}
+#altTitle {
+  position: absolute;
+  top: 70px;
+  transform: rotate(6deg);
+  width: 15%;
+}
+
+/*desktop icon styling------------------------------------------------------------------------------------------------------*/
+#icon1 {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 2%;
+}
+#iconText1 {
+  color: white;
+  position: absolute;
+  top: 35px;
+  left: 10px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#icon2 {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  width: 2%;
+}
+#iconText2 {
+  color: white;
+  position: absolute;
+  top: 105px;
+  left: 27px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#icon3 {
+  position: absolute;
+  top: 10px;
+  left: 120px;
+  width: 2%;
+}
+#iconText3 {
+  color: white;
+  position: absolute;
+  top: 35px;
+  left: 100px;
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mainWindowContent .row {
+  display: flex;        /* make the row a flex container */
+  justify-content: center;  /* vertically align items, optional */
+  gap: 20px;            /* spacing between items */
+}
+
+/*main window content styling-----------------------------------------------------------------------------------------------*/
+#mainh2 {
+  flex: 0 0 100%;
+  justify-content: center;
+}
+.row h3 {
+  flex: 0 0 auto; /* prevent it from stretching */
+  margin-left: 700%;
+}
+.mainText {
+  margin-top: 0;
+  margin-left: 15px;
+  display: block;   /* needed for flexbox sizing */
+  max-width: 60%;   /* keeps room for the image */
+  padding: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+
+/*images*/
+#mainImage1 {
+  margin-bottom: 20px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+#mainImage2 {
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+#mainImage3 {
+  margin-bottom: 20px;
+  width: 30%;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+}
+
+#stamp {
+  float: right;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  transform: rotate(7deg);
+}
+#stamp2 {
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  transform: rotate(-7deg);
+}
+#stamp3 {
+  float: right;
+  padding: 10px;
+  margin-top: 25px;
+  margin-right: 20px;
+  transform: rotate(7deg);
+}
+
+/*old school button styling----------------------------------------------------------------------------------------------*/
+.linkBtn {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  width: 83%;
+  background: linear-gradient(to bottom, #66ccff 0%, #0073e6 100%);
+  border: 1px solid #0059b3;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin: 20px 0;
+}
+
+/* glossy shine layer */
+.linkBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+}
+
+/* hover and active effects */
+.linkBtn:hover {
+  background: linear-gradient(to bottom, #80d4ff 0%, #0099ff 100%);
+}
+
+.linkBtn:active {
+  background: linear-gradient(to bottom, #0073e6 0%, #4db8ff 100%);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+  transform: translateY(1px);
+}
+
+
+.marqueeText {
+  overflow: hidden;
+  white-space: nowrap;
+  background:#edece8;
+  color: black;
+}
+
+.marqueeText-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 120s linear infinite;
+}
+
+.marquee-content {
+  padding-right: 1rem; /* space between loops */
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* move the width of one copy */
+  }
+}
+
+#newsTitle {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.icon {
+  color: #ff0000;
+}
+.deskHide {
+    display: none;
+  }
+/*for mobile-----------------------------------------------------------------------------------------*/
+@media (max-width: 500px) {
+  .desktop {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobileHide{
+    display: none;
+  }
+
+  .window {
+    width: 88%;
+    max-width: none;
+    margin-bottom: 20px;
+    max-height: 520px;
+  }
+
+  body {
+    background-image: url(../assets/images/mobileBackgroundFinal.png);
+    background-position: -342px;
+    background-size: cover;
+    background-size: 200%;
+    background-repeat: no-repeat;
+  }
+
+  .desktop {
+    margin-top: -100px;
+  }
+  .mainText {
+    width: 100%;
+  }
+  .mobileImage {
+    width: 60%;
+    margin-left: 4%;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+  }
+  .deskHide{
+    display: block;
+  }
+}
+
+
+
+
+/*scrollbar----------------------------------------------------------------------------*/
+/*for side window scrollbars------------------------------------------------------------------------------*/
+.content::-webkit-scrollbar {
+  width: 20px;                  /* thick, old-school scrollbar */
+  background: #c0c0c0;          /* gray track */
+  border-left: 2px solid #fff;  /* raised edge look */
+  border-top: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #c0c0c0;          /* base gray */
+  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080; /* creates 3D inset */
+}
+
+/* The draggable “thumb” */
+.content::-webkit-scrollbar-thumb {
+  background: #808080;          /* darker gray thumb */
+  border: 2px solid #c0c0c0;     /*inner border for 3D look */
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000; /* beveled edges */
+}
+
+/* Hover effect — slightly lighter */
+.content::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* The corner where horizontal/vertical bars meet */
+.content::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+/* === Scrollbar arrows === */
+.content::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+  height: 20px;  /* square arrow buttons */
+}
+
+/* Top (decrement) button */
+.content::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Bottom (increment) button */
+.content::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/*for main window scrollbar (needed because of a glitch in webbrowser scrollbar rendering-----------------------------------------*/
+.scrollWrapper::-webkit-scrollbar {
+  width: 20px;
+  background: #c0c0c0;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.scrollWrapper::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080;
+}
+
+.scrollWrapper::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+}
+
+.scrollWrapper::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.scrollWrapper::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+.scrollWrapper::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 2px solid #c0c0c0;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+  height: 20px;
+}
+
+.scrollWrapper::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.scrollWrapper::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+/*modal popup window styling--------------------------------------------------------------------------------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.popupImg {
+  cursor:pointer;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 500px;
+  margin: 15% auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*stylish button variant Stella-----------------------------------------------------------------------------------------*/
+.linkBtnStella {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  width: 83%;
+  background: linear-gradient(to bottom, #d466ff 0%, #6400e6 100%);
+  border: 1px solid #6400e6;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin: 20px 0;
+}
+
+/* glossy shine layer */
+.linkBtnStella::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+}
+
+/* hover and active effects */
+.linkBtnStella:hover {
+  background: linear-gradient(to bottom, #ea80ff 0%, #b700ff 100%);
+}
+
+.linkBtnStella:active {
+  background: linear-gradient(to bottom, #ea80ff 0%, #b700ff 100%);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+  transform: translateY(1px);
+}
+
+/*stylish button variant Annie-----------------------------------------------------------------------------------------*/
+.linkBtnAnnie {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  width: 83%;
+  background: linear-gradient(to bottom, #f7ea78 0%, #e6c400 100%);
+  border: 1px solid #e6bc00;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin: 20px 0;
+}
+
+/* glossy shine layer */
+.linkBtnAnnie::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255,255,255,0.2) 100%);
+}
+
+/* hover and active effects */
+.linkBtnAnnie:hover {
+  background: linear-gradient(to bottom, #ffdf2b 0%, #faed3e 100%);
+}
+
+.linkBtnAnnie:active {
+  background: linear-gradient(to bottom, #ffdf2b 0%, #faed3e 100%);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+  transform: translateY(1px);
+}
+
+
+/*-------------------------------------------------------------------------------------
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣺⣷⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⣼⣖⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⠟⣛⠼⠓⠿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⠞⠧⣜⠻⣅⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⣾⡷⠋⢀⣤⢄⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⡠⣤⡄⠑⢾⣷⣄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣿⠟⠀⡄⡻⠇⠀⢡⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⡀⠀⠺⢿⢢⡀⠻⡻⡄⠀⠀⠀⠀
+⠀⠀⠀⣠⢋⠎⠀⡼⠀⡇⠀⠂⡀⠁⡀⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⢀⠌⢀⠑⠦⢸⠀⣧⠀⠱⡜⢆⠀⠀⠀
+⠀⠀⡰⠁⡞⠀⣼⡃⠀⣧⡄⠚⢷⡄⠈⠀⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠾⠗⠁⢰⣾⠟⢀⣼⡀⢸⣷⠀⢱⠈⢧⠀⠀
+⠀⡸⠁⣸⠁⢠⠇⡅⢰⣿⢡⡇⠀⠻⣿⣦⡰⢌⡑⠢⢤⣤⡀⠀⠀⠀⠀⢀⣤⣤⠴⢊⡡⢆⢴⣿⠟⠀⢸⡄⣿⡇⢸⠘⡄⠀⢧⠈⢧⠀
+⢀⣇⠴⡇⠀⢸⠀⡇⢸⢿⣏⣧⡇⠀⠙⠛⠿⢦⣬⡓⢄⣉⠛⣄⠀⠀⣠⠞⢋⡠⢒⣉⣴⡿⠛⠃⠀⢸⣾⣿⡿⡇⢰⠀⢇⠀⠸⠧⣘⡆
+⠘⠁⢸⠀⠀⡇⢴⠁⠈⡆⢻⣿⣦⡀⣷⣰⡤⠈⠛⢻⣴⣿⡿⠛⠃⠘⠛⢿⣷⣶⡿⠛⡁⢴⣶⣿⢀⣾⣿⡟⢀⠃⢸⣄⢸⠀⠀⠇⠈⠃
+⠀⠀⡄⠀⢸⠁⢸⡇⠀⡇⠀⢻⠻⠿⠿⣿⣡⣿⣶⣶⢈⡌⡅⣶⣆⢰⣶⢨⠰⡉⣷⣦⣻⣾⣿⠿⠿⠟⡻⠀⢸⠀⢸⡇⠀⡇⠀⢸⠀⠀
+⠀⠀⡇⢀⠇⠀⠈⣇⠀⢹⠀⠀⣆⠀⡄⠀⣨⠿⠿⢿⣿⣷⣆⣽⠃⠘⣿⣴⣴⣿⡿⠿⠿⢇⠀⢠⢄⣰⠃⠀⡎⠀⣸⠁⠀⠸⡀⢸⠀⠀
+⠀⠀⣇⣼⠀⠀⠀⣿⠀⠈⡄⠀⠸⡄⠃⠰⠁⠀⣴⡾⠘⣿⠛⠟⠀⠀⠻⠿⣿⡇⢷⣤⣄⠈⢇⢸⢀⠇⠀⢀⠃⠀⣿⠀⠀⠀⣧⣸⡇⠀
+⠀⠀⡿⢹⠀⠀⠀⡿⡇⠀⢡⠀⠀⢹⣗⣿⢠⣿⣿⡇⠀⡇⠀⠀⠀⠀⠀⠀⢸⠁⢸⣿⣼⡄⣺⢾⡟⠀⠀⡜⠀⢰⢿⠀⠀⠀⡟⠻⠇⠀
+⠀⠀⠀⠘⡆⠀⠀⠁⠸⠀⠀⡆⠀⠈⢿⠹⠛⠛⠿⣷⣀⡇⠀⠀⠀⠀⠀⠀⢸⡄⣼⠿⠏⠛⠟⡿⠁⠀⢰⠁⠀⡎⢸⠀⠀⠀⡇⠀⠀⠀
+⠀⠀⠀⠀⡇⠀⠀⠀⠀⢧⠀⠸⡀⠀⠈⢇⠀⠀⠀⠙⣿⡁⠀⠀⠀⠀⠀⠀⠀⣿⠏⠀⠀⠀⣰⠃⠀⢀⠏⠀⡸⠀⢸⠀⠀⢸⠁⠀⠀⠀
+⠀⠀⠀⠀⣧⠀⠀⠆⠀⠘⡆⠀⢣⠀⠀⠘⡆⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⢠⠇⠀⠀⡼⠀⢰⠃⠀⢸⠀⠀⣸⠀⠀⠀⠀
+⠀⠀⠀⠀⢹⠀⠀⡇⠀⠀⠸⡄⠈⡆⠀⠀⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠀⠀⢠⠃⢀⠏⠀⠀⢸⠀⠀⡏⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⣆⢸⣧⠀⠀⠀⠱⡀⠸⡄⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⠀⢀⠇⠀⡞⠀⠀⠀⣼⡇⢰⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⣾⠈⢧⠀⠀⠀⢡⠀⠹⣄⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⢠⡎⠀⡜⠀⠀⠀⡰⠁⣧⠏⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠉⠀⠈⢣⡀⠀⠀⢇⠀⢻⣦⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣇⡰⡿⠀⠰⠁⠀⢀⡜⠁⠀⠉⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡄⠀⠸⡄⠈⡆⠙⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⢡⠁⢀⠇⠀⢠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆⠀⢣⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡎⠀⡜⠀⣠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢆⠘⡟⠲⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠗⢺⠃⡰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+
+
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣧⣄⡑⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⣮⣾⣷⣼⢻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣇⣨⣷⣈⡣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⣺⣾⢣⢺⣿⣷⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣎⣿⣿⣻⣦⡉⢺⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡼⠃⠈⠋⣱⢾⣿⡿⡏⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡟⣧⡏⠻⣇⠻⠷⡶⠆⠓⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⠋⣤⡀⠀⢐⣼⢿⡿⢿⠳⠼⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⢠⠹⣷⣾⣧⣙⣀⠀⠀⠀⠘⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢰⠃⢸⡯⢇⣼⣻⠃⢸⠇⠘⡆⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣇⡜⢠⣿⣿⣿⣿⣿⣮⣇⠺⢤⡈⠑⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⡮⣾⡏⣻⣿⠋⡝⠀⢸⠀⠀⣧⠀⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣧⠉⣡⣿⣷⣾⣿⣿⢿⣻⣿⣗⣦⣬⣦⡈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢰⣷⠟⣴⠟⡏⠀⡇⠀⢐⠀⠀⣿⡄⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⣾⣿⣯⣿⣿⡇⢸⣿⡿⣿⡈⢿⣾⣷⣾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡼⠋⡼⣻⠉⡇⠀⡇⠀⠈⠀⢀⣿⡇⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢒⣱⣢⠀⠀⠀⠀⠀⠀⠀⣸⡿⠀⣸⣿⣿⡿⡛⠁⡇⢻⣿⢳⣿⣿⣾⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⡇⣼⠁⣇⠀⠇⢀⣿⠀⠀⠀⣸⢸⣷⠃⠸⡆⠀⠀⠀⢠⣖⣒⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠓⣿⣿⣿⠃⠀⠀⠀⠀⠀⢠⡟⠁⣰⣿⣽⣟⣯⣣⠀⠓⠀⣿⣬⡉⢿⡯⣽⡧⠿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣸⣰⡇⠀⣿⡀⠀⣸⢼⡆⠀⢠⣇⢾⣿⡆⢰⣷⠀⠀⠀⣿⣿⣿⣷⡌⠆⠀⠀⠀⠀⠀⠀⠀⠀⢠⢣⡿⢟⡻⠻⡀⠀⠀⠀⠀⢀⣾⠀⣶⣿⣾⣿⣯⢽⣿⣆⡀⣸⣿⢻⣇⢼⣷⣾⣷⠀⣹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣷⢗⠃⠀⣿⠑⠴⣿⢿⡟⠦⠫⡏⢸⠈⣷⠀⣿⣵⠀⠀⢷⡿⡄⣀⡹⣿⡄⠀⠀⠀⠀⠀⠀⠀⣾⡞⢁⣼⣿⣟⣇⠀⠀⠀⢀⣾⠏⣠⣿⣿⣿⢻⠇⣺⣿⣿⡏⡿⢿⢿⣻⣿⢿⣟⡌⠑⢺⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢰⢹⢸⠀⢰⢿⠀⠂⣞⠈⡇⠀⢠⠃⠀⠀⣿⡆⢹⡇⡇⠀⢸⡿⣿⣿⠙⣿⣧⠀⠀⠀⠀⠀⠀⠈⣷⢣⣟⣿⣾⣿⠇⠀⠀⢀⢼⡿⢠⣿⣿⣿⣿⠂⠐⣿⣿⣿⣽⡿⢼⣵⡿⣿⣾⣿⣤⡄⢰⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⡸⣾⠀⠀⡾⠸⠀⠀⡇⠀⠁⠀⣸⣇⠀⢸⢏⣷⠈⢹⠋⡆⠀⣳⣿⣿⣣⢰⣿⠀⠀⠀⠀⠀⠀⠰⣿⡿⣴⣿⣿⢍⠀⠀⣰⢺⣿⠃⣾⣿⣿⣧⣿⣧⣸⣿⣿⠻⣅⡘⢹⣏⣻⡏⣽⣿⢿⣏⣯⣽⢱⡜⣷⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⡇⢸⡀⣸⣷⠀⠀⢸⢧⠀⠀⢀⢿⠿⣤⠃⣾⣹⡆⠸⣇⡧⢴⠁⡰⠻⠙⣧⡿⠀⠀⠀⠀⠀⠀⠀⣿⣿⠇⡼⠻⡆⢦⡴⣿⣿⠇⣼⣿⣿⣿⡇⣿⣿⢧⣿⡃⠀⣭⣻⣿⣽⢁⡻⣴⣿⣿⡿⢷⣧⣸⡧⠿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⠇⣾⢻⡃⣿⠷⣀⣾⢺⣆⠀⣼⠆⠃⣿⠀⡸⣽⣿⠄⢹⠀⠘⡇⣿⡀⣶⠻⡇⠀⠀⠀⠀⠀⠀⠀⣟⠻⣿⡃⠀⣿⢸⣤⢹⠏⢠⣿⣿⣿⡹⣿⣿⢿⡮⢧⣵⣾⣿⡟⢿⣿⣾⢀⣿⣯⣽⣇⠀⠀⠀⠀⢠⣾⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⢰⣿⠸⡇⢸⡀⠈⢸⣐⣿⠛⠃⠀⡦⡏⠀⡏⣿⢸⣷⠘⠷⣼⣧⡘⠋⢿⣤⠇⠀⠀⠀⠀⠀⠀⠀⢿⣼⡙⢷⡴⢃⣿⣿⠟⠀⣾⣿⣿⣿⣿⣿⡏⠸⡇⠈⢸⣿⣋⠀⠈⢿⡛⣿⡯⣿⣹⢹⢧⠀⢀⡄⢾⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⡎⣿⠀⡇⠀⢇⠀⡼⠀⢹⠂⠀⢰⠃⠃⢸⢧⠇⢨⢿⡄⠀⠀⠙⠛⠓⣾⣹⠀⠀⠀⠀⠀⠀⠀⠀⣾⢸⡇⠰⣾⣛⠈⠀⠀⣸⣿⣿⣻⣿⣿⣧⢇⢠⠑⣤⣼⣿⣧⣌⣀⣼⣗⣿⡇⢏⠈⠈⠀⠀⠀⠀⠘⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⡇⢸⠀⠹⡀⠈⠀⣷⠀⠈⢇⠀⢸⠀⠀⡎⠀⠀⢸⠃⣷⣄⠀⠀⠀⢠⡿⡛⠀⠀⠀⠀⠀⠀⠀⠀⠈⡏⣳⡄⠀⠀⠀⠀⣼⣿⣿⣿⣯⣿⣿⡿⣾⡏⠀⠹⣿⣿⣿⣟⠛⢻⣿⠿⢧⠀⣱⡦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⠄⢸⠀⠀⣷⠀⢸⣿⡀⠀⠀⠀⣾⣄⡼⣿⠀⠀⣼⡆⠙⢻⣷⣤⣴⣏⡷⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣯⣽⣄⠀⣰⣾⣿⣿⣿⡿⣿⡏⠛⢱⣾⣿⣶⣶⣿⣿⣿⡿⢁⣸⡿⡦⢰⠀⢁⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⡂⠀⠀⠀⣿⡗⠋⢿⣧⠀⠀⢰⢹⠇⢰⣿⣆⢠⣿⠱⣀⣾⡝⡏⣿⣟⡿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⡧⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⣿⣧⣦⣸⣿⢿⣿⡽⣘⣿⡿⢷⣙⣿⡇⠈⠚⣦⠜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢻⡇⠀⠀⢸⣧⢹⠀⠸⠈⣧⣀⡮⢿⠀⢸⣾⠉⡟⣽⠀⣟⢻⠀⡇⡿⣏⢡⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⣿⣻⣇⣿⣿⣿⣿⠁⠘⣟⠙⠁⠘⢽⣿⣿⣿⣏⣀⢽⣯⡽⠑⠸⡇⠀⠀⠘⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢣⣷⠀⢀⡏⢿⠘⡀⠀⢇⠈⡇⢀⡎⠀⡏⡜⠀⡧⣿⠀⣚⠸⠁⡧⡇⣏⠈⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠈⠋⣿⣿⣿⣯⢧⣀⣠⣿⡀⠀⣆⢘⣿⣿⣇⠀⡄⢼⣿⠀⠀⠀⢦⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢿⡏⣦⣼⠁⢸⡆⢣⠀⠈⠀⡇⠈⠀⢰⠷⠁⢀⠃⡄⠀⢼⢰⠀⡷⠃⡇⢸⣹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⣠⣿⣟⠉⢻⣶⣿⣿⣿⣿⣦⣿⣾⣿⣿⣿⣷⠣⢼⡞⠀⠀⠀⠾⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⠂⡿⠸⡄⠀⢱⡘⣆⠀⠀⡇⠀⢠⡏⠀⠀⡜⡀⠅⠀⡾⠀⢀⠇⢀⣿⣟⡇⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣏⣿⣶⣿⣿⣯⣿⣟⣿⣼⣽⣿⡝⡿⣿⣿⡆⠈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢘⠀⢗⠈⢧⠀⠀⢰⣿⠳⣠⣷⣠⣿⣧⠀⢰⠃⠉⠀⠀⡟⠀⣸⡀⣼⣿⢸⡇⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⠾⢿⣿⡿⣿⠿⣿⢻⣝⣿⣟⠉⠏⠋⢻⣿⡼⡀⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠸⠀⢹⠀⢸⢣⡀⣼⢻⡄⠀⠸⡇⢹⡯⡦⢻⠀⠀⠀⠀⡇⢀⣿⠋⡇⣿⢸⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⣿⣝⠈⣋⣧⠘⡄⠹⣸⡄⢸⣤⣧⡰⠀⢸⣻⣗⢧⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠠⡆⠘⠂⢸⢸⡿⡃⠈⣧⠀⠀⣇⢸⠃⠀⣾⡄⠀⠀⢸⣄⣜⣿⢀⡇⡅⢸⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡷⢳⡏⠀⢹⣸⢲⠀⠀⠈⠡⠼⣿⣿⡆⠀⠘⡏⣧⠁⡆⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⡇⠀⠀⡞⠘⡇⡇⠀⠈⣆⠀⣿⢘⠀⢀⠟⣷⡀⠀⣾⠄⡏⣿⠀⣇⠃⡍⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠊⠀⠀⠀⢿⡆⠀⠀⠀⠀⠀⢻⣿⡶⠀⠀⣷⢿⢤⣡⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠸⠀⣸⠁⠀⡇⣹⠀⠀⠈⠀⢸⠈⠀⢸⠈⣿⠓⠞⡟⢠⡇⡝⢀⡗⠀⡍⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⣬⣽⡿⡗⠀⠀⣟⣾⢢⠙⠀⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢳⡇⠀⠀⡇⠸⣇⠀⠀⠀⢸⠀⢀⡇⠀⡿⠀⠀⡇⢸⡃⠆⢸⡄⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡻⡿⣧⠁⠀⠀⣿⣿⢷⣦⠀⠀⠀⠀⠀⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⣿⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠘⣧⠀⠀⠁⠀⢹⡄⠀⠀⢸⠀⣼⠀⠀⡆⠀⢰⡇⢸⠃⠀⠘⠁⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠀⡽⠀⠀⠀⡟⠀⠘⠘⠂⠀⠀⠀⢤⣿⣶⡀⠀⠀⠀⠀⠀⠀⠀⢸⢿⣿⣳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣿⡄⠀⠀⠀⣹⢻⡀⠀⣾⣰⢿⡂⠀⠀⠀⣸⡇⢸⠀⠀⡏⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⡜⠀⠀⠀⡇⢰⠀⡆⠀⠀⠀⡰⣾⣯⠹⣷⠀⠀⠀⠀⠀⠀⠀⡜⠐⡏⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢸⡇⠀⠀⢠⡇⠈⠿⣶⡏⠁⠈⣧⠀⠀⢠⣿⡇⢸⠀⢰⣧⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⢰⡁⠀⠀⠘⡇⠸⡆⠃⠀⠀⠘⣿⣿⣿⠀⢫⡁⠀⠀⠀⠀⠀⣼⣤⢺⢃⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢸⡜⡀⠀⡌⡇⠀⠀⢸⡇⠀⠀⢻⡄⠀⣼⠘⡇⢸⠀⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣌⡇⠀⠀⠀⣇⢠⣇⡇⠀⠀⢀⡟⣿⣧⠀⢹⡀⠀⠀⠀⠀⠀⠈⢃⠋⠘⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠇⠓⣾⠉⣷⠀⠀⠈⠇⠀⠀⣿⠙⣾⢹⠀⡇⢸⢀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠻⣼⣿⠀⠀⠀⠀⡇⠈⣿⠀⢸⠀⠀⠀⠀⠀⠀⠀⢸⣀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢰⠀⢿⡀⢸⣇⠀⠀⠸⠀⢰⢹⡀⣿⠘⡈⡇⠸⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⡟⠀⠀⠀⠘⠃⡠⣿⠀⠀⡇⠀⠀⠀⠀⠀⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠘⡀⠸⡇⢸⡜⡄⠀⠀⠀⡞⠸⡇⢸⠀⡇⠃⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⢿⡄⠀⠀⠀⡖⣰⣿⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡇⠀⠇⠠⡇⠹⡀⠀⢰⠃⠀⡇⠸⠃⡆⠐⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⣰⢋⢼⡇⠀⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢱⠀⡁⠀⡇⠀⠙⢲⡏⠀⠀⣇⠀⡃⢠⠀⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢁⠎⢸⣇⠀⠀⢃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⠀⢸⠀⣇⠀⠀⢸⡇⠀⠀⢸⠀⡇⢸⠀⠀⠈⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⠀⠸⣿⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡂⠰⠀⢹⠀⠀⠸⡇⠀⠀⢸⠀⡇⢸⡆⠀⠀⠰⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⢻⡆⠀⠀⢇⠀⠀⠀⠀⠀⣴⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⡷⠀⠀⢸⠀⠀⢸⠐⡄⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⢉⠀⠀⠈⣿⠀⠀⠘⡀⠀⠀⠀⣸⠃⠀⠀⢼⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⡇⠀⠀⢸⡄⠀⠘⡀⠈⢄⠀⠀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⢼⠀⠀⣼⠿⡇⠀⠀⢱⠀⣀⢠⠏⠀⠀⠀⢀⣧⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⠃⠀⠀⢸⡂⠀⠀⡅⠀⠀⠑⢄⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠸⡀⢰⡿⢠⣿⡂⠄⡈⢦⣟⡿⣖⠀⠀⠀⡨⣽⣾⡷⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⢰⠀⠀⠀⢸⠁⠀⠀⡇⠀⠀⠀⠀⠻⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣦⣾⣧⡀⠀⠀⠀⠀⠀⢧⢺⠇⣾⠃⢳⠢⢌⣍⣿⠟⢻⠆⠀⠀⢯⡝⢻⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⠀⠰⠀⠀⢰⠀⠀⠀⢸⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢽⣿⢸⡄⠀⠀⠀⠀⠀⠙⣹⡜⠇⠘⠌⣆⠀⠈⢻⠀⣽⠀⠀⠀⠈⢇⠈⢿⢢⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠇⠀⠀⠐⠀⠀⢨⠀⠀⠀⢘⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠸⠁⠀⠀⠀⠀⠀⠀⢹⠞⠀⠀⠀⠘⡆⠀⠘⡼⠁⠀⠀⠀⠀⢸⠀⢸⠀⡆⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠃⠀⠀⢰⠀⠀⢨⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣞⡿⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⢆⠀⠀⠀⠀⢱⠀⠀⢇⠀⠀⠀⠀⠀⢸⣴⢽⣠⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢸⠁⠀⠀⢸⠀⠀⢰⠀⠀⢀⡇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡜⣼⠇⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡄⠀⠀⠀⠀⡇⠀⠈⡄⠀⠀⠀⠀⢩⠂⠸⠟⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢸⠀⠀⠀⣼⠀⠀⡤⠀⠀⢸⠁⠀⠀⡍⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡤⢩⡿⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⡟⠂⠀⢡⠀⠀⠀⠀⠸⡀⠀⡆⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡇⠀⠀⢠⣻⠀⠀⠇⠀⠀⡏⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠌⣰⣿⠃⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠹⡄⠀⢸⠇⢀⡀⠈⡆⠀⠀⠀⠀⠱⡀⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠇⠀⢀⠆⡌⠀⠀⠀⠀⢰⠇⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠊⣠⣿⠃⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣳⠶⣳⢠⡟⠀⠸⣕⢕⠲⠀⠀⠀⠀⠀⢹⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠸⠀⢀⠎⢀⠇⠀⠀⠀⠀⣾⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⢥⣴⣿⡏⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠈⢩⢋⣻⠁⠀⠀⠙⡢⣱⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣇⡠⠊⠀⠘⠀⠀⠀⠀⢠⡏⠀⠀⢠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡻⠟⣿⢹⡅⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⠀⠀⡌⢞⠀⢆⠀⠀⠀⠱⡘⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠉⠁⠀⢀⠇⠀⠀⠀⠀⣼⠁⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⣼⣿⣊⢽⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⡰⠁⢸⠀⡜⠆⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡘⠀⠀⠀⠀⡘⢠⠀⠀⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠃⠀⢺⢿⣿⡌⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⢠⡁⠀⢸⡤⠀⠰⡀⠀⠀⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢠⠁⠀⠀⠀⢠⠃⡆⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⢠⠏⢸⣻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⡞⡇⠀⠀⡅⠀⠀⢣⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⢠⠃⢠⠁⢀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⢣⠞⠏⠀⡸⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⠀⣼⢀⠡⠀⡜⠀⠀⠀⠈⡄⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢠⠃⠀⠀⠀⢀⠎⠀⠘⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡟⠀⠀⡰⠁⠀⠀⠀⢲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠃⣬⠇⢨⢶⡰⠁⠀⠀⠀⠀⣃⠀⢸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡠⠃⠀⠀⠀⢠⠎⠀⠀⠙⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠁⠀⡰⠁⠀⠀⠀⠀⠀⣹⣦⡀⠀⠀⠀⠀⠀⠸⡖⡏⠀⢸⢸⠁⠀⠀⠀⠀⠀⢺⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⡜⠀⠀⠀⣀⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⢠⠁⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⢸⣻⠀⠀⣈⠈⠀⠀⠀⠀⠀⠀⢸⣰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⠎⣀⠠⠔⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⡇⠀⡎⠀⠀⠀⠀⠀⠀⠀⡞⣿⢘⡄⠀⠀⠀⠀⠀⠇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠘⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠘⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠁⢠⠀⠀⠀⠀⠀⠀⠀⠀⡧⣿⠸⠃⠀⠀⠀⠀⢠⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡆⡌⠀⠀⠀⠀⠀⠀⠀⠀⢡⠘⡆⢣⠀⠀⠀⠀⢸⠀⠀⠀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠸⣶⠈⠙⣦⠀⠀⠀⠀⡄⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⣆⠀⢾⡇⠀⠀⠀⣣⣠⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠸⣿⢉⠀⠀⠀⠀⠀⠀⠀⠐⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣴⣿⡆⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀⠀⠀⠀⠀⠀⠘⠧⠴⠒⠠⠔⠠⠶⠔⠶⠆⢸⡿⠽⠿⠁⠠
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+----*/

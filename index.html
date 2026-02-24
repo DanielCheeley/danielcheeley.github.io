@@ -6,6 +6,7 @@
   <title>Home Page</title>
   <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <div class="containerFlexRow">
@@ -15,15 +16,21 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a target="_blank" href="retro.html">Go Retro</a></li>
+        <li><a target="_blank" href="blog.html">Blog</a></li>
+        <li><a target="_blank" href="https://github.com/DanielCheeley">Projects</a></li>
+        <li><a target="_blank" href="https://danielcheeley.github.io/portfolio/">Portfolio</a></li>
       </ul>
     </nav>
   </div>
   <div class="mainContent">
-    <h1>Hello! My name is Dan!</h1>
+    <div id="consoleTop">
+      <p id="consoleHeader">Command Prompt</p><p id="consoleClose">− &nbsp;&nbsp; 🗗 &nbsp; X</p>
+    </div>
+
+    <div class="consoleText">
+      <div id="terminal"></div>
+    </div>
   </div>
 </body>
 </html>

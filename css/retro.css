@@ -1,735 +1,800 @@
-body {
-  background-image: url(/assets/images/windowsBackground.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Original retro artwork and windows, with functional desktop controls. */
+:root {
   font-family: Tahoma, "MS Sans Serif", sans-serif;
-  font-size: 15px;
-  line-height: 1.2;
-  -webkit-font-smoothing: none; /* Chrome/Safari */
-  -moz-osx-font-smoothing: auto; /* Firefox */
-  display: flex;               /* enables flexbox layout */
-  justify-content: center;     /* centers horizontally */
-  height: 100vh;
-  overflow: hidden;
+  color: #000;
+  background: #5685be;
+  --bevel: inset 1px 1px #fff, inset -1px -1px #000;
 }
-
-/*retro window-----------------------------------------------------------------------------*/
-.desktop {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2vw;          /* responsive spacing */
-  width: 100%;
-  padding: 5vh 2vw;
+* {
   box-sizing: border-box;
 }
-
-
-.window {
-  width: 80%;
-  min-width: 300px;    /* prevents shrinking too much */
-  max-width: 1000px;    /* prevents stretching too wide */
-  height: 650px;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
-
+body {
+  margin: 0;
+  height: 100dvh;
   overflow: hidden;
+  background: url("../assets/images/windowsBackground.jpg") center / cover fixed;
+  font-size: 15px;
 }
-
-
-/*side window left*/
-.windowSide1,
-.windowSide2 {
-  width: 18.92%;
-  min-width: 180px;
-  max-width: 500px;
-  height: 650px;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
+p {
+  line-height: 1.5;
 }
-
-
-
-.title-bar {
-  background: linear-gradient(to bottom, #000080, #000060);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px 5px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.title-bar-buttons {
-  display: flex;
-  gap: 2px;
-}
-
-.title-button {
-  width: 16px;
-  height: 16px;
-  background: #c0c0c0;
-  border: 1px solid #fff;
-  box-shadow: inset -1px -1px 0 #000;
-  text-align: center;
-  line-height: 14px;
-  font-weight: bold;
-  color: #000;
+button {
+  font: inherit;
   cursor: pointer;
 }
-
-.mainWindowContent {
-  display: flex;
-  flex-direction: row;   /* ← horizontal layout */
-  align-items: flex-start; /* ← items align at the top */
-  flex-wrap: wrap;
-  padding: 10px;
-  background: #edece8;
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
+a:focus-visible,
+button:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: 3px;
 }
-.scrollWrapper {
-  height: 650px;
-  overflow-y: scroll;
-}
-.content {
-  position: relative;
-  height: 600px;
-  flex: 1;
-  padding: 10px;
-  background: #edece8;
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  overflow-y: scroll;
-}
-
-
-
-/*text and content styling----------------------------------------------------------------------------------------------*/
-h2 {
-  text-align: center;
-}
-
 img {
-  width: 150px;
-  height: auto;
+  max-width: 100%;
 }
-
-.divider {
-  width: 100%;
+[hidden] {
+  display: none !important;
 }
-
-/*title styling-------------------------------------------------------------------------------------------------------------*/
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 10px;
+  padding: 10px;
+  background: #fff;
+  z-index: 10001;
+}
+.skip-link:focus {
+  top: 10px;
+}
 #title {
   position: absolute;
   top: 0;
-  width: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(40%, 760px);
+  max-height: 135px;
+  object-fit: contain;
 }
 #altTitle {
   position: absolute;
   top: 70px;
-  transform: rotate(6deg);
-  width: 15%;
+  left: 50%;
+  transform: translateX(-50%) rotate(6deg);
+  width: min(15%, 280px);
+  max-height: 100px;
+  object-fit: contain;
 }
-
-/*desktop icon styling------------------------------------------------------------------------------------------------------*/
-#icon1 {
+.desktop-icons {
+  grid-template-columns: repeat(3, 82px);
   position: absolute;
   top: 10px;
-  left: 30px;
-  width: 2%;
+  left: 15px;
+  display: grid;
+  align-items: start;
+  gap: 7px 12px;
 }
-#iconText1 {
-  color: white;
-  position: absolute;
-  top: 35px;
-  left: 10px;
-  padding: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+.desktop-icons button {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 82px;
+  padding: 7px 3px;
+  background: transparent;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  font-size: 11px;
+  border: 1px solid transparent;
 }
-
-#icon2 {
-  position: absolute;
-  top: 80px;
-  left: 30px;
-  width: 2%;
-}
-#iconText2 {
-  color: white;
-  position: absolute;
-  top: 105px;
-  left: 27px;
-  padding: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+.note-shortcut {
+  grid-column: 1;
+  grid-row: 2;
 }
 
-#icon3 {
-  position: absolute;
-  top: 10px;
-  left: 120px;
-  width: 2%;
+.desktop-icons button:hover {
+  border: 1px dotted #fff;
+  background: #00008033;
 }
-#iconText3 {
-  color: white;
-  position: absolute;
-  top: 35px;
-  left: 100px;
-  padding: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+.desktop-icons img {
+  width: 33px;
+  height: 33px;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
-
-.mainWindowContent .row {
-  display: flex;        /* make the row a flex container */
-  justify-content: center;  /* vertically align items, optional */
-  gap: 20px;            /* spacing between items */
+.desktop {
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) minmax(0, 3fr) minmax(190px, 1fr);
+  align-items: start;
+  gap: 2vw;
+  padding: 170px 2vw 70px;
 }
-
-/*main window content styling-----------------------------------------------------------------------------------------------*/
+/* Explicit slots keep other panels from moving when one leaves the grid. */
+#media-window {
+  grid-column: 1;
+  grid-row: 1;
+}
+#home-window {
+  grid-column: 2;
+  grid-row: 1;
+}
+#links-window {
+  grid-column: 3;
+  grid-row: 1;
+}
+.desktop-window {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: calc(100dvh - 240px);
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow:
+    2px 2px #fff,
+    4px 4px #000;
+  overflow: hidden;
+}
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 6px;
+  min-height: 29px;
+  flex-shrink: 0;
+  background: linear-gradient(#000080, #000060);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  user-select: none;
+  touch-action: none;
+  cursor: move;
+}
+.title-bar-buttons {
+  display: flex;
+  gap: 3px;
+}
+.title-button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #fff;
+  box-shadow: inset -1px -1px #000;
+  background: #c0c0c0;
+  color: #000;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 16px;
+}
+.title-button:active,
+.task-button:active {
+  box-shadow:
+    inset 1px 1px #000,
+    inset -1px -1px #fff;
+}
+.content,
+.scrollWrapper {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  background: #edece8;
+  border: 2px inset #eee;
+}
+.content {
+  padding: 12px;
+}
+.mainWindowContent {
+  padding: 15px;
+}
 #mainh2 {
-  flex: 0 0 100%;
-  justify-content: center;
+  text-align: center;
+  font-size: 23px;
+  margin: 8px 0 24px;
 }
-.row h3 {
-  flex: 0 0 auto; /* prevent it from stretching */
-  margin-left: 700%;
+.row {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+.row > img {
+  width: 30%;
+  height: auto;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, darkblue, #5c5cc9) 1;
 }
 .mainText {
-  margin-top: 0;
-  margin-left: 15px;
-  display: block;   /* needed for flexbox sizing */
-  max-width: 60%;   /* keeps room for the image */
-  padding: 5px;
-  border-style: solid;
-  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
-}
-
-/*images*/
-#mainImage1 {
-  margin-bottom: 20px;
-  width: 30%;
-  border-style: solid;
-  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
-}
-#mainImage2 {
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: 15px;
-  width: 30%;
-  border-style: solid;
-  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
-}
-#mainImage3 {
-  margin-bottom: 20px;
-  width: 30%;
-  border-style: solid;
-  border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
-}
-
-#stamp {
-  float: right;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
   padding: 10px;
-  margin-top: 10px;
-  margin-right: 20px;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, darkblue, #5c5cc9) 1;
+  line-height: 1.5;
+}
+.mainText strong {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+#stamp,
+#stamp2,
+#stamp3 {
+  width: 120px;
+  max-width: 55%;
+  height: auto;
+  float: right;
+  margin: 14px 5px 5px 12px;
   transform: rotate(7deg);
 }
 #stamp2 {
   float: left;
-  padding: 10px;
-  margin-top: 10px;
-  margin-right: 20px;
   transform: rotate(-7deg);
 }
-#stamp3 {
-  float: right;
-  padding: 10px;
-  margin-top: 25px;
-  margin-right: 20px;
-  transform: rotate(7deg);
+/* Compact badges share a row; extra-wide banners get the full width. */
+.blinkies {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  align-items: center;
+  justify-items: center;
+  margin-block: 12px;
 }
-
-/*old school button styling----------------------------------------------------------------------------------------------*/
-.linkBtn {
+.blinkies img {
   display: block;
-  text-decoration: none;
-  position: relative;
-  text-align: center;
-  width: 83%;
-  background: linear-gradient(to bottom, #66ccff 0%, #0073e6 100%);
-  border: 1px solid #0059b3;
-  border-radius: 25px;
-  color: white;
-  padding: 10px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.2s ease;
-  margin: 20px 0;
-}
-
-/* glossy shine layer */
-.linkBtn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 50%;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background: rgba(255, 255, 255, 0.5);
-  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
-
-/* hover and active effects */
-.linkBtn:hover {
-  background: linear-gradient(to bottom, #80d4ff 0%, #0099ff 100%);
+.blinkies .blinkie-wide {
+  grid-column: 1 / -1;
 }
-
-.linkBtn:active {
-  background: linear-gradient(to bottom, #0073e6 0%, #4db8ff 100%);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
-  transform: translateY(1px);
+.divider {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-
-
+#newsTitle {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
 .marqueeText {
   overflow: hidden;
   white-space: nowrap;
-  background:#edece8;
-  color: black;
+  border-block: 1px solid #aaa;
 }
-
 .marqueeText-track {
   display: flex;
   width: max-content;
   animation: marquee 120s linear infinite;
 }
-
 .marquee-content {
-  padding-right: 1rem; /* space between loops */
+  padding-right: 1rem;
+  font-size: 12px;
 }
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* move the width of one copy */
-  }
-}
-
-#newsTitle {
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-}
-
 .icon {
-  color: #ff0000;
+  color: #bf0000;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.linkBtn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 11px 12px;
+  margin-block: 18px;
+  border: 1px solid #0059b3;
+  border-radius: 25px;
+  background: linear-gradient(#c7edff 0%, #66ccff 45%, #0073e6 100%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  text-shadow: 0 -1px #0005;
+  box-shadow:
+    inset 0 1px 2px #fff,
+    0 3px 6px #0004;
+}
+.linkBtn:hover {
+  background: linear-gradient(#ddf4ff, #0099ff);
+}
+hr {
+  border: 0;
+  border-top: 1px solid #aaa;
+}
+.is-floating {
+  position: fixed;
+  margin: 0;
+}
+.desktop-window.is-maximized {
+  position: fixed;
+  inset: 8px 8px 60px;
+  width: auto !important;
+  height: auto;
+  margin: 0;
+}
+.taskbar {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  min-height: 47px;
+}
+.task-button {
+  background: #c0c0c0;
+  border: 0;
+  box-shadow: var(--bevel);
+  color: #000;
+  padding: 8px 12px;
+  font:
+    11px Tahoma,
+    sans-serif;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.start-button {
+  font-weight: bold;
+}
+.window-tabs,
+.desktop-tools {
+  display: flex;
+  gap: 6px;
+}
+.window-tabs {
+  flex-wrap: wrap;
+}
+.window-tabs .task-button {
+  min-width: 100px;
+  text-align: left;
+}
+.window-tabs .task-button[aria-pressed="true"] {
+  box-shadow:
+    inset 1px 1px #555,
+    inset -1px -1px #fff;
+  background: #ddd;
+}
+.desktop-tools {
+  margin-left: auto;
+}
+#desktop-clock {
+  font-size: 11px;
+  padding: 7px 10px;
+  border: 2px inset #ddd;
+  white-space: nowrap;
+}
+dialog {
+  border: 2px outset #ddd;
+  padding: 4px;
+  background: #c0c0c0;
+  max-width: min(440px, 92vw);
+}
+dialog::backdrop {
+  background: #0008;
+}
+.dialog-message {
+  padding: 15px;
 }
 .deskHide {
-    display: none;
-  }
-/*for mobile-----------------------------------------------------------------------------------------*/
-@media (max-width: 500px) {
+  display: none;
+}
+.content,
+.scrollWrapper {
+  scrollbar-color: #808080 #c0c0c0;
+  scrollbar-width: auto;
+}
+@media (max-width: 1100px) and (min-width: 801px) {
   .desktop {
-    flex-direction: column;
-    align-items: center;
+    gap: 15px;
+    grid-template-columns: 165px minmax(0, 1fr) 175px;
   }
-
-  .mobileHide{
-    display: none;
+  .desktop-icons {
+    gap: 2px;
   }
-
-  .window {
-    width: 88%;
-    max-width: none;
-    margin-bottom: 20px;
-    max-height: 520px;
+  .desktop-icons button {
+    width: 68px;
+    font-size: 10px;
   }
-
+  .row {
+    gap: 12px;
+  }
+  .mainText {
+    font-size: 13px;
+  }
+  .linkBtn {
+    font-size: 15px;
+  }
+}
+@media (max-width: 800px) {
   body {
-    background-image: url(../assets/images/mobileBackgroundFinal.png);
-    background-position: -342px;
-    background-size: cover;
-    background-size: 200%;
-    background-repeat: no-repeat;
+    height: auto;
+    overflow: auto;
+    padding-bottom: 60px;
   }
-
+  #title {
+    position: relative;
+    display: block;
+    left: auto;
+    transform: none;
+    width: 85%;
+    max-height: 105px;
+    margin: 10px auto;
+  }
+  #altTitle {
+    position: relative;
+    display: block;
+    left: auto;
+    top: auto;
+    width: 35%;
+    max-height: 70px;
+    margin: -15px auto 10px;
+  }
+  .desktop-icons {
+    position: static;
+    justify-content: center;
+    padding-block: 10px 20px;
+  }
   .desktop {
-    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4% 25px;
+    gap: 25px;
+  }
+  .desktop-window {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+  .window {
+    order: -1;
+  }
+  .windowSide1 .content {
+    max-height: 300px;
+  }
+  .title-bar {
+    touch-action: auto;
+    cursor: default;
+  }
+  .title-button[data-action="maximize"] {
+    display: none;
+  }
+  .mainWindowContent {
+    padding: 12px;
+  }
+  #mainh2 {
+    font-size: 20px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .row > img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 240px;
+    object-fit: cover;
+    align-self: center;
   }
   .mainText {
     width: 100%;
+    font-size: 13px;
+    padding: 10px;
   }
-  .mobileImage {
-    width: 60%;
-    margin-left: 4%;
-    margin-bottom: 20px;
-    border-style: solid;
-    border-image: linear-gradient(to right, darkblue, rgb(92, 92, 201)) 1;
+  .taskbar {
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 7px;
   }
-  .deskHide{
-    display: block;
+  .window-tabs {
+    flex: 1;
+  }
+  .window-tabs .task-button {
+    min-width: 0;
+    flex: 1;
+    padding: 8px;
+    font-size: 10px;
+  }
+  .desktop-tools {
+    margin-left: 0;
+  }
+  .desktop-tools .task-button {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+  #desktop-clock {
+    margin-left: auto;
+    font-size: 10px;
+  }
+  body {
+    padding-bottom: 100px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marqueeText-track {
+    animation: none;
   }
 }
 
-
-
-
-/*scrollbar----------------------------------------------------------------------------*/
-/*for side window scrollbars------------------------------------------------------------------------------*/
-.content::-webkit-scrollbar {
-  width: 20px;                  /* thick, old-school scrollbar */
-  background: #c0c0c0;          /* gray track */
-  border-left: 2px solid #fff;  /* raised edge look */
-  border-top: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-}
-
-.content::-webkit-scrollbar-track {
-  background: #c0c0c0;          /* base gray */
-  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080; /* creates 3D inset */
-}
-
-/* The draggable “thumb” */
-.content::-webkit-scrollbar-thumb {
-  background: #808080;          /* darker gray thumb */
-  border: 2px solid #c0c0c0;     /*inner border for 3D look */
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000; /* beveled edges */
-}
-
-/* Hover effect — slightly lighter */
-.content::-webkit-scrollbar-thumb:hover {
-  background: #a0a0a0;
-}
-
-/* The corner where horizontal/vertical bars meet */
-.content::-webkit-scrollbar-corner {
-  background: #c0c0c0;
-}
-
-/* === Scrollbar arrows === */
-.content::-webkit-scrollbar-button {
-  background: #c0c0c0;
-  border: 2px solid #c0c0c0;
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
-  height: 20px;  /* square arrow buttons */
-}
-
-/* Top (decrement) button */
-.content::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Bottom (increment) button */
-.content::-webkit-scrollbar-button:vertical:increment {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-
-/*for main window scrollbar (needed because of a glitch in webbrowser scrollbar rendering-----------------------------------------*/
-.scrollWrapper::-webkit-scrollbar {
-  width: 20px;
-  background: #c0c0c0;
-  border-left: 2px solid #fff;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-}
-
-.scrollWrapper::-webkit-scrollbar-track {
-  background: #c0c0c0;
-  box-shadow: 2px 2px 0 #ffffff, inset -2px -2px 0 #808080;
-}
-
-.scrollWrapper::-webkit-scrollbar-thumb {
-  background: #808080;
-  border: 2px solid #c0c0c0;
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
-}
-
-.scrollWrapper::-webkit-scrollbar-thumb:hover {
-  background: #a0a0a0;
-}
-
-.scrollWrapper::-webkit-scrollbar-corner {
-  background: #c0c0c0;
-}
-
-.scrollWrapper::-webkit-scrollbar-button {
-  background: #c0c0c0;
-  border: 2px solid #c0c0c0;
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
-  height: 20px;
-}
-
-.scrollWrapper::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,6 4,2 8,6" fill="black"/></svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.scrollWrapper::-webkit-scrollbar-button:vertical:increment {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><polygon points="0,2 4,6 8,2" fill="black"/></svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-
-
-/*modal popup window styling--------------------------------------------------------------------------------------------*/
-.modal {
-  display: none;
+/* Small desktop apps reuse the same drag and window controls. */
+.app-window {
   position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
+  left: 25%;
+  top: 25%;
+  width: min(550px, 90vw);
+  height: 365px;
+}
+.note-window {
+  left: 35%;
+  top: 30%;
+  width: min(470px, 90vw);
+  height: 340px;
+}
+.explorer-address {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #888;
+}
+.explorer-address strong {
+  flex: 1;
+  background: #fff;
+  border: 2px inset #ddd;
+  padding: 5px;
+  font-weight: normal;
+}
+.explorer-files {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 6px;
+  background: #fff;
+  margin: 5px;
+  padding: 12px;
+  border: 2px inset #ddd;
+}
+.explorer-files a,
+.explorer-files button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: #111;
+  background: transparent;
+  padding: 10px 8px;
+  border: 1px solid transparent;
+  text-align: left;
+  text-decoration: none;
+  font-size: 12px;
+}
+.explorer-files a:hover,
+.explorer-files button:hover {
+  background: #e6edff;
+  border-color: #8da3cf;
+}
+.explorer-files img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.explorer-files small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #666;
+}
+.notepad-document {
+  flex: 1;
+  min-height: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  resize: none;
+  border: 2px inset #ddd;
+  border-radius: 0;
+  background: #fff;
+  color: #111;
+  font:
+    14px/1.6 "Courier New",
+    monospace;
+  padding: 16px;
+}
+.app-status {
+  padding: 5px 8px;
+  border-top: 1px solid #888;
+  color: #444;
+  font-size: 10px;
+}
+@media (max-width: 800px) {
+  .desktop-icons {
+    grid-template-columns: repeat(3, 82px);
+  }
+  .app-window,
+  .note-window {
+    position: static;
+    width: 100%;
+    height: 365px;
+  }
+  .window-tabs {
+    flex-basis: calc(100% - 65px);
+  }
+  .window-tabs .task-button {
+    flex: 1 0 55px;
+  }
 }
 
-.popupImg {
-  cursor:pointer;
+/* Network Neighborhood: classic window chrome, two distinct personal cards. */
+.app-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
 }
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  width: 500px;
-  margin: 15% auto;
-  border-radius: 8px;
+.app-title img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.task-icon {
+  width: 12px;
+  height: 14px;
+  object-fit: contain;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+#modal {
+  width: min(490px, 92vw);
+  max-width: 490px;
+  padding: 4px;
+}
+.network-titlebar {
+  cursor: default;
+  touch-action: auto;
+}
+.network-address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #888;
+  font-size: 11px;
+}
+.network-address > span:last-child {
+  flex: 1;
+  background: #fff;
+  border: 2px inset #ddd;
+  padding: 5px 7px;
+}
+.network-content {
+  background: #f0f0ed;
+  border: 2px inset #ddd;
+  padding: 26px 22px 23px;
+}
+.network-eyebrow {
+  margin: 0 0 9px;
+  font:
+    10px "Courier New",
+    monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #69707e;
+}
+.network-content h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: normal;
+  letter-spacing: -0.03em;
+  color: #283344;
+}
+.network-intro {
+  margin: 10px 0 22px;
+  font-size: 12px;
+  color: #676b72;
+}
+.network-pages {
+  display: grid;
+  gap: 14px;
+}
+.friend-card {
+  display: grid;
+  justify-items: center;
   text-align: center;
+  gap: 10px;
+  padding: 22px 18px;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 5px;
+  min-width: 0;
+}
+.friend-card strong {
+  display: block;
+  font:
+    normal clamp(20px, 5.7vw, 26px)/1.3 Georgia,
+    serif;
+  margin-top: 5px;
+  letter-spacing: -0.03em;
 }
 
-.close {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/*stylish button variant Stella-----------------------------------------------------------------------------------------*/
 .linkBtnStella {
-  display: block;
-  text-decoration: none;
-  position: relative;
-  text-align: center;
-  width: 83%;
-  background: linear-gradient(to bottom, #d466ff 0%, #6400e6 100%);
-  border: 1px solid #6400e6;
-  border-radius: 25px;
-  color: white;
-  padding: 10px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.2s ease;
-  margin: 20px 0;
+  background:
+    radial-gradient(ellipse at top right, #8550ad44, transparent 70%),
+    linear-gradient(120deg, #2c2140, #49305f);
+  color: #f2e9ff;
+  border-color: #8d71aa;
+  box-shadow:
+    inset 0 1px #ffffff22,
+    0 3px 8px #2d144417;
 }
-
-/* glossy shine layer */
-.linkBtnStella::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background: rgba(255, 255, 255, 0.5);
-  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+.linkBtnStella .friend-art,
+.linkBtnStella .friend-flourish {
+  color: #cbb0e6;
 }
-
-/* hover and active effects */
-.linkBtnStella:hover {
-  background: linear-gradient(to bottom, #ea80ff 0%, #b700ff 100%);
-}
-
-.linkBtnStella:active {
-  background: linear-gradient(to bottom, #ea80ff 0%, #b700ff 100%);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
-  transform: translateY(1px);
-}
-
-/*stylish button variant Annie-----------------------------------------------------------------------------------------*/
 .linkBtnAnnie {
-  display: block;
-  text-decoration: none;
-  position: relative;
-  text-align: center;
-  width: 83%;
-  background: linear-gradient(to bottom, #f7ea78 0%, #e6c400 100%);
-  border: 1px solid #e6bc00;
-  border-radius: 25px;
-  color: white;
-  padding: 10px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 3px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.2s ease;
-  margin: 20px 0;
+  background:
+    radial-gradient(ellipse at top right, #fff, transparent 75%),
+    linear-gradient(120deg, #fffdf5, #eee6d0);
+  color: #685433;
+  border-color: #d8c79e;
+  box-shadow:
+    inset 0 1px #fff,
+    0 3px 8px #9c845817;
+}
+.linkBtnAnnie .friend-art,
+.linkBtnAnnie .friend-flourish {
+  color: #a78a46;
+}
+.network-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+/* Original text-art ornaments stay separate from the readable page names. */
+.friend-art {
+  font:
+    13px/1.5 Georgia,
+    serif;
+  white-space: nowrap;
+}
+.friend-flourish {
+  font:
+    clamp(10px, 2.8vw, 15px)/1.5 Georgia,
+    serif;
+  white-space: nowrap;
+}
+@media (max-width: 500px) {
+  .network-content {
+    padding: 21px 14px;
+  }
+  .network-content h2 {
+    font-size: 21px;
+  }
+  .friend-card {
+    padding: 18px 12px;
+    gap: 10px;
+  }
+  .friend-art {
+    font-size: 11px;
+  }
+  .network-status {
+    font-size: 9px;
+  }
 }
 
-/* glossy shine layer */
-.linkBtnAnnie::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background: rgba(255, 255, 255, 0.5);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255,255,255,0.2) 100%);
+.friend-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  max-width: 100%;
 }
-
-/* hover and active effects */
-.linkBtnAnnie:hover {
-  background: linear-gradient(to bottom, #ffdf2b 0%, #faed3e 100%);
+.friend-name strong {
+  margin-top: 0;
+  white-space: nowrap;
 }
-
-.linkBtnAnnie:active {
-  background: linear-gradient(to bottom, #ffdf2b 0%, #faed3e 100%);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
-  transform: translateY(1px);
-}
-
-
-/*-------------------------------------------------------------------------------------
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣺⣷⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⣼⣖⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣠⠟⣛⠼⠓⠿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⠞⠧⣜⠻⣅⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣠⣾⡷⠋⢀⣤⢄⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⡠⣤⡄⠑⢾⣷⣄⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢀⣿⠟⠀⡄⡻⠇⠀⢡⠀⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⡀⠀⠺⢿⢢⡀⠻⡻⡄⠀⠀⠀⠀
-⠀⠀⠀⣠⢋⠎⠀⡼⠀⡇⠀⠂⡀⠁⡀⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⢀⠌⢀⠑⠦⢸⠀⣧⠀⠱⡜⢆⠀⠀⠀
-⠀⠀⡰⠁⡞⠀⣼⡃⠀⣧⡄⠚⢷⡄⠈⠀⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠾⠗⠁⢰⣾⠟⢀⣼⡀⢸⣷⠀⢱⠈⢧⠀⠀
-⠀⡸⠁⣸⠁⢠⠇⡅⢰⣿⢡⡇⠀⠻⣿⣦⡰⢌⡑⠢⢤⣤⡀⠀⠀⠀⠀⢀⣤⣤⠴⢊⡡⢆⢴⣿⠟⠀⢸⡄⣿⡇⢸⠘⡄⠀⢧⠈⢧⠀
-⢀⣇⠴⡇⠀⢸⠀⡇⢸⢿⣏⣧⡇⠀⠙⠛⠿⢦⣬⡓⢄⣉⠛⣄⠀⠀⣠⠞⢋⡠⢒⣉⣴⡿⠛⠃⠀⢸⣾⣿⡿⡇⢰⠀⢇⠀⠸⠧⣘⡆
-⠘⠁⢸⠀⠀⡇⢴⠁⠈⡆⢻⣿⣦⡀⣷⣰⡤⠈⠛⢻⣴⣿⡿⠛⠃⠘⠛⢿⣷⣶⡿⠛⡁⢴⣶⣿⢀⣾⣿⡟⢀⠃⢸⣄⢸⠀⠀⠇⠈⠃
-⠀⠀⡄⠀⢸⠁⢸⡇⠀⡇⠀⢻⠻⠿⠿⣿⣡⣿⣶⣶⢈⡌⡅⣶⣆⢰⣶⢨⠰⡉⣷⣦⣻⣾⣿⠿⠿⠟⡻⠀⢸⠀⢸⡇⠀⡇⠀⢸⠀⠀
-⠀⠀⡇⢀⠇⠀⠈⣇⠀⢹⠀⠀⣆⠀⡄⠀⣨⠿⠿⢿⣿⣷⣆⣽⠃⠘⣿⣴⣴⣿⡿⠿⠿⢇⠀⢠⢄⣰⠃⠀⡎⠀⣸⠁⠀⠸⡀⢸⠀⠀
-⠀⠀⣇⣼⠀⠀⠀⣿⠀⠈⡄⠀⠸⡄⠃⠰⠁⠀⣴⡾⠘⣿⠛⠟⠀⠀⠻⠿⣿⡇⢷⣤⣄⠈⢇⢸⢀⠇⠀⢀⠃⠀⣿⠀⠀⠀⣧⣸⡇⠀
-⠀⠀⡿⢹⠀⠀⠀⡿⡇⠀⢡⠀⠀⢹⣗⣿⢠⣿⣿⡇⠀⡇⠀⠀⠀⠀⠀⠀⢸⠁⢸⣿⣼⡄⣺⢾⡟⠀⠀⡜⠀⢰⢿⠀⠀⠀⡟⠻⠇⠀
-⠀⠀⠀⠘⡆⠀⠀⠁⠸⠀⠀⡆⠀⠈⢿⠹⠛⠛⠿⣷⣀⡇⠀⠀⠀⠀⠀⠀⢸⡄⣼⠿⠏⠛⠟⡿⠁⠀⢰⠁⠀⡎⢸⠀⠀⠀⡇⠀⠀⠀
-⠀⠀⠀⠀⡇⠀⠀⠀⠀⢧⠀⠸⡀⠀⠈⢇⠀⠀⠀⠙⣿⡁⠀⠀⠀⠀⠀⠀⠀⣿⠏⠀⠀⠀⣰⠃⠀⢀⠏⠀⡸⠀⢸⠀⠀⢸⠁⠀⠀⠀
-⠀⠀⠀⠀⣧⠀⠀⠆⠀⠘⡆⠀⢣⠀⠀⠘⡆⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⢠⠇⠀⠀⡼⠀⢰⠃⠀⢸⠀⠀⣸⠀⠀⠀⠀
-⠀⠀⠀⠀⢹⠀⠀⡇⠀⠀⠸⡄⠈⡆⠀⠀⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠀⠀⢠⠃⢀⠏⠀⠀⢸⠀⠀⡏⠀⠀⠀⠀
-⠀⠀⠀⠀⠈⣆⢸⣧⠀⠀⠀⠱⡀⠸⡄⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⠀⢀⠇⠀⡞⠀⠀⠀⣼⡇⢰⠃⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠘⣾⠈⢧⠀⠀⠀⢡⠀⠹⣄⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⢠⡎⠀⡜⠀⠀⠀⡰⠁⣧⠏⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠉⠀⠈⢣⡀⠀⠀⢇⠀⢻⣦⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣇⡰⡿⠀⠰⠁⠀⢀⡜⠁⠀⠉⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡄⠀⠸⡄⠈⡆⠙⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⢡⠁⢀⠇⠀⢠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆⠀⢣⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡎⠀⡜⠀⣠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢆⠘⡟⠲⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠗⢺⠃⡰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-
-
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣧⣄⡑⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⣮⣾⣷⣼⢻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣇⣨⣷⣈⡣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⣠⣺⣾⢣⢺⣿⣷⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣎⣿⣿⣻⣦⡉⢺⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⡼⠃⠈⠋⣱⢾⣿⡿⡏⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡟⣧⡏⠻⣇⠻⠷⡶⠆⠓⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢠⠋⣤⡀⠀⢐⣼⢿⡿⢿⠳⠼⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⢠⠹⣷⣾⣧⣙⣀⠀⠀⠀⠘⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢰⠃⢸⡯⢇⣼⣻⠃⢸⠇⠘⡆⠀⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣇⡜⢠⣿⣿⣿⣿⣿⣮⣇⠺⢤⡈⠑⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⡮⣾⡏⣻⣿⠋⡝⠀⢸⠀⠀⣧⠀⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣧⠉⣡⣿⣷⣾⣿⣿⢿⣻⣿⣗⣦⣬⣦⡈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢰⣷⠟⣴⠟⡏⠀⡇⠀⢐⠀⠀⣿⡄⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⣾⣿⣯⣿⣿⡇⢸⣿⡿⣿⡈⢿⣾⣷⣾⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⡼⠋⡼⣻⠉⡇⠀⡇⠀⠈⠀⢀⣿⡇⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢒⣱⣢⠀⠀⠀⠀⠀⠀⠀⣸⡿⠀⣸⣿⣿⡿⡛⠁⡇⢻⣿⢳⣿⣿⣾⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢀⡇⣼⠁⣇⠀⠇⢀⣿⠀⠀⠀⣸⢸⣷⠃⠸⡆⠀⠀⠀⢠⣖⣒⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠓⣿⣿⣿⠃⠀⠀⠀⠀⠀⢠⡟⠁⣰⣿⣽⣟⣯⣣⠀⠓⠀⣿⣬⡉⢿⡯⣽⡧⠿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣸⣰⡇⠀⣿⡀⠀⣸⢼⡆⠀⢠⣇⢾⣿⡆⢰⣷⠀⠀⠀⣿⣿⣿⣷⡌⠆⠀⠀⠀⠀⠀⠀⠀⠀⢠⢣⡿⢟⡻⠻⡀⠀⠀⠀⠀⢀⣾⠀⣶⣿⣾⣿⣯⢽⣿⣆⡀⣸⣿⢻⣇⢼⣷⣾⣷⠀⣹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣷⢗⠃⠀⣿⠑⠴⣿⢿⡟⠦⠫⡏⢸⠈⣷⠀⣿⣵⠀⠀⢷⡿⡄⣀⡹⣿⡄⠀⠀⠀⠀⠀⠀⠀⣾⡞⢁⣼⣿⣟⣇⠀⠀⠀⢀⣾⠏⣠⣿⣿⣿⢻⠇⣺⣿⣿⡏⡿⢿⢿⣻⣿⢿⣟⡌⠑⢺⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢰⢹⢸⠀⢰⢿⠀⠂⣞⠈⡇⠀⢠⠃⠀⠀⣿⡆⢹⡇⡇⠀⢸⡿⣿⣿⠙⣿⣧⠀⠀⠀⠀⠀⠀⠈⣷⢣⣟⣿⣾⣿⠇⠀⠀⢀⢼⡿⢠⣿⣿⣿⣿⠂⠐⣿⣿⣿⣽⡿⢼⣵⡿⣿⣾⣿⣤⡄⢰⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⡸⣾⠀⠀⡾⠸⠀⠀⡇⠀⠁⠀⣸⣇⠀⢸⢏⣷⠈⢹⠋⡆⠀⣳⣿⣿⣣⢰⣿⠀⠀⠀⠀⠀⠀⠰⣿⡿⣴⣿⣿⢍⠀⠀⣰⢺⣿⠃⣾⣿⣿⣧⣿⣧⣸⣿⣿⠻⣅⡘⢹⣏⣻⡏⣽⣿⢿⣏⣯⣽⢱⡜⣷⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⡇⢸⡀⣸⣷⠀⠀⢸⢧⠀⠀⢀⢿⠿⣤⠃⣾⣹⡆⠸⣇⡧⢴⠁⡰⠻⠙⣧⡿⠀⠀⠀⠀⠀⠀⠀⣿⣿⠇⡼⠻⡆⢦⡴⣿⣿⠇⣼⣿⣿⣿⡇⣿⣿⢧⣿⡃⠀⣭⣻⣿⣽⢁⡻⣴⣿⣿⡿⢷⣧⣸⡧⠿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢀⠇⣾⢻⡃⣿⠷⣀⣾⢺⣆⠀⣼⠆⠃⣿⠀⡸⣽⣿⠄⢹⠀⠘⡇⣿⡀⣶⠻⡇⠀⠀⠀⠀⠀⠀⠀⣟⠻⣿⡃⠀⣿⢸⣤⢹⠏⢠⣿⣿⣿⡹⣿⣿⢿⡮⢧⣵⣾⣿⡟⢿⣿⣾⢀⣿⣯⣽⣇⠀⠀⠀⠀⢠⣾⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⢰⣿⠸⡇⢸⡀⠈⢸⣐⣿⠛⠃⠀⡦⡏⠀⡏⣿⢸⣷⠘⠷⣼⣧⡘⠋⢿⣤⠇⠀⠀⠀⠀⠀⠀⠀⢿⣼⡙⢷⡴⢃⣿⣿⠟⠀⣾⣿⣿⣿⣿⣿⡏⠸⡇⠈⢸⣿⣋⠀⠈⢿⡛⣿⡯⣿⣹⢹⢧⠀⢀⡄⢾⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⡎⣿⠀⡇⠀⢇⠀⡼⠀⢹⠂⠀⢰⠃⠃⢸⢧⠇⢨⢿⡄⠀⠀⠙⠛⠓⣾⣹⠀⠀⠀⠀⠀⠀⠀⠀⣾⢸⡇⠰⣾⣛⠈⠀⠀⣸⣿⣿⣻⣿⣿⣧⢇⢠⠑⣤⣼⣿⣧⣌⣀⣼⣗⣿⡇⢏⠈⠈⠀⠀⠀⠀⠘⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⡇⢸⠀⠹⡀⠈⠀⣷⠀⠈⢇⠀⢸⠀⠀⡎⠀⠀⢸⠃⣷⣄⠀⠀⠀⢠⡿⡛⠀⠀⠀⠀⠀⠀⠀⠀⠈⡏⣳⡄⠀⠀⠀⠀⣼⣿⣿⣿⣯⣿⣿⡿⣾⡏⠀⠹⣿⣿⣿⣟⠛⢻⣿⠿⢧⠀⣱⡦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⠄⢸⠀⠀⣷⠀⢸⣿⡀⠀⠀⠀⣾⣄⡼⣿⠀⠀⣼⡆⠙⢻⣷⣤⣴⣏⡷⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣯⣽⣄⠀⣰⣾⣿⣿⣿⡿⣿⡏⠛⢱⣾⣿⣶⣶⣿⣿⣿⡿⢁⣸⡿⡦⢰⠀⢁⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⡂⠀⠀⠀⣿⡗⠋⢿⣧⠀⠀⢰⢹⠇⢰⣿⣆⢠⣿⠱⣀⣾⡝⡏⣿⣟⡿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⡧⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⣿⣧⣦⣸⣿⢿⣿⡽⣘⣿⡿⢷⣙⣿⡇⠈⠚⣦⠜⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢻⡇⠀⠀⢸⣧⢹⠀⠸⠈⣧⣀⡮⢿⠀⢸⣾⠉⡟⣽⠀⣟⢻⠀⡇⡿⣏⢡⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⣿⣻⣇⣿⣿⣿⣿⠁⠘⣟⠙⠁⠘⢽⣿⣿⣿⣏⣀⢽⣯⡽⠑⠸⡇⠀⠀⠘⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢣⣷⠀⢀⡏⢿⠘⡀⠀⢇⠈⡇⢀⡎⠀⡏⡜⠀⡧⣿⠀⣚⠸⠁⡧⡇⣏⠈⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠈⠋⣿⣿⣿⣯⢧⣀⣠⣿⡀⠀⣆⢘⣿⣿⣇⠀⡄⢼⣿⠀⠀⠀⢦⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢿⡏⣦⣼⠁⢸⡆⢣⠀⠈⠀⡇⠈⠀⢰⠷⠁⢀⠃⡄⠀⢼⢰⠀⡷⠃⡇⢸⣹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⣠⣿⣟⠉⢻⣶⣿⣿⣿⣿⣦⣿⣾⣿⣿⣿⣷⠣⢼⡞⠀⠀⠀⠾⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢸⠂⡿⠸⡄⠀⢱⡘⣆⠀⠀⡇⠀⢠⡏⠀⠀⡜⡀⠅⠀⡾⠀⢀⠇⢀⣿⣟⡇⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣏⣿⣶⣿⣿⣯⣿⣟⣿⣼⣽⣿⡝⡿⣿⣿⡆⠈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢘⠀⢗⠈⢧⠀⠀⢰⣿⠳⣠⣷⣠⣿⣧⠀⢰⠃⠉⠀⠀⡟⠀⣸⡀⣼⣿⢸⡇⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⠾⢿⣿⡿⣿⠿⣿⢻⣝⣿⣟⠉⠏⠋⢻⣿⡼⡀⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠸⠀⢹⠀⢸⢣⡀⣼⢻⡄⠀⠸⡇⢹⡯⡦⢻⠀⠀⠀⠀⡇⢀⣿⠋⡇⣿⢸⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⣿⣝⠈⣋⣧⠘⡄⠹⣸⡄⢸⣤⣧⡰⠀⢸⣻⣗⢧⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠠⡆⠘⠂⢸⢸⡿⡃⠈⣧⠀⠀⣇⢸⠃⠀⣾⡄⠀⠀⢸⣄⣜⣿⢀⡇⡅⢸⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡷⢳⡏⠀⢹⣸⢲⠀⠀⠈⠡⠼⣿⣿⡆⠀⠘⡏⣧⠁⡆⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⡇⠀⠀⡞⠘⡇⡇⠀⠈⣆⠀⣿⢘⠀⢀⠟⣷⡀⠀⣾⠄⡏⣿⠀⣇⠃⡍⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠊⠀⠀⠀⢿⡆⠀⠀⠀⠀⠀⢻⣿⡶⠀⠀⣷⢿⢤⣡⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠸⠀⣸⠁⠀⡇⣹⠀⠀⠈⠀⢸⠈⠀⢸⠈⣿⠓⠞⡟⢠⡇⡝⢀⡗⠀⡍⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⣬⣽⡿⡗⠀⠀⣟⣾⢢⠙⠀⠀⠀⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢳⡇⠀⠀⡇⠸⣇⠀⠀⠀⢸⠀⢀⡇⠀⡿⠀⠀⡇⢸⡃⠆⢸⡄⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡻⡿⣧⠁⠀⠀⣿⣿⢷⣦⠀⠀⠀⠀⠀⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⣿⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠘⣧⠀⠀⠁⠀⢹⡄⠀⠀⢸⠀⣼⠀⠀⡆⠀⢰⡇⢸⠃⠀⠘⠁⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⠀⡽⠀⠀⠀⡟⠀⠘⠘⠂⠀⠀⠀⢤⣿⣶⡀⠀⠀⠀⠀⠀⠀⠀⢸⢿⣿⣳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⣿⡄⠀⠀⠀⣹⢻⡀⠀⣾⣰⢿⡂⠀⠀⠀⣸⡇⢸⠀⠀⡏⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⡜⠀⠀⠀⡇⢰⠀⡆⠀⠀⠀⡰⣾⣯⠹⣷⠀⠀⠀⠀⠀⠀⠀⡜⠐⡏⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⡇⠀⠀⢠⡇⠈⠿⣶⡏⠁⠈⣧⠀⠀⢠⣿⡇⢸⠀⢰⣧⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⢰⡁⠀⠀⠘⡇⠸⡆⠃⠀⠀⠘⣿⣿⣿⠀⢫⡁⠀⠀⠀⠀⠀⣼⣤⢺⢃⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⡜⡀⠀⡌⡇⠀⠀⢸⡇⠀⠀⢻⡄⠀⣼⠘⡇⢸⠀⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣌⡇⠀⠀⠀⣇⢠⣇⡇⠀⠀⢀⡟⣿⣧⠀⢹⡀⠀⠀⠀⠀⠀⠈⢃⠋⠘⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠇⠓⣾⠉⣷⠀⠀⠈⠇⠀⠀⣿⠙⣾⢹⠀⡇⢸⢀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠻⣼⣿⠀⠀⠀⠀⡇⠈⣿⠀⢸⠀⠀⠀⠀⠀⠀⠀⢸⣀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢰⠀⢿⡀⢸⣇⠀⠀⠸⠀⢰⢹⡀⣿⠘⡈⡇⠸⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⡟⠀⠀⠀⠘⠃⡠⣿⠀⠀⡇⠀⠀⠀⠀⠀⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠘⡀⠸⡇⢸⡜⡄⠀⠀⠀⡞⠸⡇⢸⠀⡇⠃⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⢿⡄⠀⠀⠀⡖⣰⣿⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⡇⠀⠇⠠⡇⠹⡀⠀⢰⠃⠀⡇⠸⠃⡆⠐⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⣰⢋⢼⡇⠀⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢱⠀⡁⠀⡇⠀⠙⢲⡏⠀⠀⣇⠀⡃⢠⠀⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢁⠎⢸⣇⠀⠀⢃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠘⠀⢸⠀⣇⠀⠀⢸⡇⠀⠀⢸⠀⡇⢸⠀⠀⠈⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⠀⠸⣿⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡂⠰⠀⢹⠀⠀⠸⡇⠀⠀⢸⠀⡇⢸⡆⠀⠀⠰⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⢻⡆⠀⠀⢇⠀⠀⠀⠀⠀⣴⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⡷⠀⠀⢸⠀⠀⢸⠐⡄⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⢉⠀⠀⠈⣿⠀⠀⠘⡀⠀⠀⠀⣸⠃⠀⠀⢼⡇⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⡇⠀⠀⢸⡄⠀⠘⡀⠈⢄⠀⠀⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⢼⠀⠀⣼⠿⡇⠀⠀⢱⠀⣀⢠⠏⠀⠀⠀⢀⣧⣄⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⠃⠀⠀⢸⡂⠀⠀⡅⠀⠀⠑⢄⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠸⡀⢰⡿⢠⣿⡂⠄⡈⢦⣟⡿⣖⠀⠀⠀⡨⣽⣾⡷⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⠀⠀⢰⠀⠀⠀⢸⠁⠀⠀⡇⠀⠀⠀⠀⠻⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣦⣾⣧⡀⠀⠀⠀⠀⠀⢧⢺⠇⣾⠃⢳⠢⢌⣍⣿⠟⢻⠆⠀⠀⢯⡝⢻⣿⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡇⠀⠀⠰⠀⠀⢰⠀⠀⠀⢸⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⢽⣿⢸⡄⠀⠀⠀⠀⠀⠙⣹⡜⠇⠘⠌⣆⠀⠈⢻⠀⣽⠀⠀⠀⠈⢇⠈⢿⢢⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠇⠀⠀⠐⠀⠀⢨⠀⠀⠀⢘⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠸⠁⠀⠀⠀⠀⠀⠀⢹⠞⠀⠀⠀⠘⡆⠀⠘⡼⠁⠀⠀⠀⠀⢸⠀⢸⠀⡆⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠃⠀⠀⢰⠀⠀⢨⠀⠀⠀⡇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣞⡿⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⢆⠀⠀⠀⠀⢱⠀⠀⢇⠀⠀⠀⠀⠀⢸⣴⢽⣠⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢸⠁⠀⠀⢸⠀⠀⢰⠀⠀⢀⡇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡜⣼⠇⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡄⠀⠀⠀⠀⡇⠀⠈⡄⠀⠀⠀⠀⢩⠂⠸⠟⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢸⠀⠀⠀⣼⠀⠀⡤⠀⠀⢸⠁⠀⠀⡍⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡤⢩⡿⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⡟⠂⠀⢡⠀⠀⠀⠀⠸⡀⠀⡆⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⡇⠀⠀⢠⣻⠀⠀⠇⠀⠀⡏⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠌⣰⣿⠃⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠹⡄⠀⢸⠇⢀⡀⠈⡆⠀⠀⠀⠀⠱⡀⡇⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠇⠀⢀⠆⡌⠀⠀⠀⠀⢰⠇⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠊⣠⣿⠃⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣳⠶⣳⢠⡟⠀⠸⣕⢕⠲⠀⠀⠀⠀⠀⢹⡇⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠸⠀⢀⠎⢀⠇⠀⠀⠀⠀⣾⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⢥⣴⣿⡏⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠈⢩⢋⣻⠁⠀⠀⠙⡢⣱⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⣇⡠⠊⠀⠘⠀⠀⠀⠀⢠⡏⠀⠀⢠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡻⠟⣿⢹⡅⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⠀⠀⡌⢞⠀⢆⠀⠀⠀⠱⡘⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠉⠁⠀⢀⠇⠀⠀⠀⠀⣼⠁⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⣼⣿⣊⢽⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⡰⠁⢸⠀⡜⠆⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⡘⠀⠀⠀⠀⡘⢠⠀⠀⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠃⠀⢺⢿⣿⡌⡌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⢠⡁⠀⢸⡤⠀⠰⡀⠀⠀⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢠⠁⠀⠀⠀⢠⠃⡆⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⢠⠏⢸⣻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⡞⡇⠀⠀⡅⠀⠀⢣⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⢠⠃⢠⠁⢀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⢣⠞⠏⠀⡸⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⠀⣼⢀⠡⠀⡜⠀⠀⠀⠈⡄⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢠⠃⠀⠀⠀⢀⠎⠀⠘⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡟⠀⠀⡰⠁⠀⠀⠀⢲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠃⣬⠇⢨⢶⡰⠁⠀⠀⠀⠀⣃⠀⢸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⡠⠃⠀⠀⠀⢠⠎⠀⠀⠙⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠁⠀⡰⠁⠀⠀⠀⠀⠀⣹⣦⡀⠀⠀⠀⠀⠀⠸⡖⡏⠀⢸⢸⠁⠀⠀⠀⠀⠀⢺⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⡜⠀⠀⠀⣀⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⢠⠁⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⢸⣻⠀⠀⣈⠈⠀⠀⠀⠀⠀⠀⢸⣰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢀⠎⣀⠠⠔⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⡇⠀⡎⠀⠀⠀⠀⠀⠀⠀⡞⣿⢘⡄⠀⠀⠀⠀⠀⠇⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠘⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠘⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠁⢠⠀⠀⠀⠀⠀⠀⠀⠀⡧⣿⠸⠃⠀⠀⠀⠀⢠⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡆⡌⠀⠀⠀⠀⠀⠀⠀⠀⢡⠘⡆⢣⠀⠀⠀⠀⢸⠀⠀⠀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠸⣶⠈⠙⣦⠀⠀⠀⠀⡄⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⣆⠀⢾⡇⠀⠀⠀⣣⣠⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠸⣿⢉⠀⠀⠀⠀⠀⠀⠀⠐⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣴⣿⡆⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀⠀⠀⠀⠀⠀⠘⠧⠴⠒⠠⠔⠠⠶⠔⠶⠆⢸⡿⠽⠿⠁⠠
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-----*/

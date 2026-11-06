@@ -1,36 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
-</head>
-<body>
-  <div class="containerFlexRow">
-    <div id="nameAndPic">
-      <img id="mainImg" src="assets/images/Mymotorcyle2.jpeg" alt="Me on mymotorcycle">
-      <h1>Daniel Cheeley</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a target="_blank" href="retro.html">Go Retro</a></li>
-        <li><a target="_blank" href="blog.html">Blog</a></li>
-        <li><a target="_blank" href="https://github.com/DanielCheeley">Projects</a></li>
-        <li><a target="_blank" href="https://danielcheeley.github.io/portfolio/">Portfolio</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="mainContent">
-    <div id="consoleTop">
-      <p id="consoleHeader">Command Prompt</p><p id="consoleClose">− &nbsp;&nbsp; 🗗 &nbsp; X</p>
-    </div>
-
-    <div class="consoleText">
-      <div id="terminal"></div>
-    </div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta
+      name="description"
+      content="Daniel Cheeley's corner of the internet. Code, motorcycles, creative experiments, and an interactive console."
+    >
+    <title>Daniel Cheeley — Personal workspace</title>
+    <link rel="stylesheet" href="css/style.css" >
+    <script src="js/home.js" defer></script>
+    <script src="js/photo-deck.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="./"
+        >Daniel Cheeley<span class="home-tag">/ home</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="blog.html">Blog</a>
+        <a href="retro.html">Go retro</a>
+        <a href="https://github.com/DanielCheeley">GitHub</a>
+        <a
+          class="nav-portfolio"
+          href="https://danielcheeley.github.io/react-portfolio/"
+          >Portfolio</a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <div class="intro-layout">
+        <section class="intro" aria-labelledby="intro-title">
+          <p class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span> Daniel’s corner
+            of the internet
+          </p>
+          <h1 id="intro-title">
+            A little code.<br >A lot of <span>curiosity.</span>
+          </h1>
+          <p class="intro-copy">
+            Hey, I’m Daniel. I like building things, taking them apart, and
+            figuring out what makes them tick. This is where my interests meet.
+          </p>
+          <a
+            class="portfolio-link"
+            href="https://danielcheeley.github.io/react-portfolio/"
+            >Looking for my development work?
+            <strong>Explore my portfolio ↗</strong></a
+          >
+          <div class="interest-tags">
+            <span>Code &amp; games</span><span>Two wheels</span
+            ><span>The outdoors</span>
+          </div>
+        </section>
+        <aside class="photo-deck" aria-label="Snapshots beyond the screen">
+          <p class="eyebrow">Off the clock / a few snapshots</p>
+          <div class="photo-stack" id="photo-stack">
+            <figure class="photo-card" data-position="0" data-photo="portrait">
+              <img
+                src="assets/images/portrait.jpg"
+                alt="Daniel outdoors in a green jacket"
+                fetchpriority="high"
+              >
+              <figcaption>
+                <span>Hey, I’m Daniel.</span><span>01 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="1"
+              data-photo="atv"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/atv-mudding.png"
+                alt="Daniel riding an ATV covered in mud"
+              >
+              <figcaption>
+                <span>On the muddy path.</span><span>02 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="2"
+              data-photo="motorcycle"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/Mymotorcyle2.jpeg"
+                alt="Daniel on his motorcycle"
+              >
+              <figcaption>
+                <span>Lounging Ride.</span><span>03 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="3"
+              data-photo="waterfall"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/HikeWaterfall.JPEG"
+                alt="Daniel sitting on rocks beside a waterfall"
+              >
+              <figcaption>
+                <span>Taking the scenic route.</span><span>04 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="4"
+              data-photo="sunglasses"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/sunglasses.JPEG"
+                alt="Daniel wearing sunglasses at an outdoor table"
+              >
+              <figcaption>
+                <span>A moment off the clock.</span><span>05 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="5"
+              data-photo="tokyo"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/TokyoTower.JPG"
+                alt="Two people posing beneath the illuminated Tokyo Tower"
+              >
+              <figcaption>
+                <span>An evening in Tokyo.</span><span>06 / 07</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="photo-card"
+              data-position="6"
+              data-photo="snowboarding"
+              aria-hidden="true"
+            >
+              <img
+                src="assets/images/snowboarding.jpg"
+                alt="Daniel with his snowboard on a snowy slope"
+              >
+              <figcaption>
+                <span>Chasing fresh powder.</span><span>07 / 07</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="deck-controls">
+            <button type="button" id="deck-next" aria-label="Show next photo">
+              Shuffle the deck
+            </button>
+            <button type="button" id="deck-pause" aria-pressed="false">
+              Pause
+            </button>
+          </div>
+        </aside>
+      </div>
+      <section class="workspace" aria-label="Explore my workspace">
+        <div class="console">
+          <div class="console-bar">
+            <span class="window-dots" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+            <h2>daniel@home: ~</h2>
+            <span class="console-tag">● ready to explore</span>
+          </div>
+          <div class="console-body">
+            <div class="boot">
+              <span class="ascii" aria-hidden="true">&gt;_</span>
+              <div>
+                <p class="boot-title">Hello, world. I’m Dan.</p>
+                <p>A developer, a tinkerer, and a work in progress.</p>
+              </div>
+            </div>
+            <p class="console-hint">
+              A little more about me. Pick a command or type your own.
+            </p>
+            <div class="command-shortcuts">
+              <button type="button" data-command="about">about</button
+              ><button type="button" data-command="interests">interests</button
+              ><button type="button" data-command="links">links</button
+              ><button type="button" data-command="projects">projects</button>
+              <button type="button" data-command="photos">photos</button>
+              <button type="button" data-command="help">help</button>
+            </div>
+            <div
+              id="terminal-output"
+              role="log"
+              aria-label="Console output"
+              aria-live="polite"
+              aria-relevant="additions"
+            >
+              <div class="terminal-entry">
+                <p><span class="prompt">daniel ~ $</span> welcome</p>
+                <p class="response welcome-response">
+                  Make yourself at home. Try <strong>about</strong>, or type
+                  <strong>help</strong> to look around.
+                </p>
+              </div>
+            </div>
+            <form id="terminal-form" autocomplete="off">
+              <label for="terminal-input"
+                ><span class="prompt" aria-hidden="true">daniel ~ $</span
+                ><span class="sr-only">Enter a console command</span></label
+              ><input
+                id="terminal-input"
+                name="command"
+                type="text"
+                placeholder="Try help, projects, or photos…"
+                maxlength="100"
+                autocapitalize="off"
+                spellcheck="false"
+              ><button
+                class="run-command"
+                type="submit"
+                aria-label="Run command"
+              >
+                ↵
+              </button>
+            </form>
+          </div>
+          <div class="console-footer">
+            <span>↑ ↓ history · Enter to run</span><span>Try “surprise” ✦</span>
+          </div>
+        </div>
+        <aside class="side-notes" aria-label="Beyond the screen">
+          <a class="destination-card journal-note" href="blog.html"
+            ><span class="eyebrow"
+              >Notes along the way <span aria-hidden="true">↗</span></span
+            >
+            <h2>The blog.</h2>
+            <p>Thoughts, interests, and whatever I’m learning next.</p></a
+          >
+          <a class="destination-card retro-note" href="retro.html">
+            <span class="eyebrow"
+              >A different era <span aria-hidden="true">↗</span></span
+            >
+            <h2>Go retro.</h2>
+            <p>A little nostalgia from the other side of this site.</p>
+          </a>
+        </aside>
+      </section>
+    </main>
+    <footer>
+      <span>Daniel Cheeley / personal site</span
+      ><a href="https://danielcheeley.github.io/react-portfolio/"
+        >Development portfolio</a
+      >
+    </footer>
+  </body>
 </html>

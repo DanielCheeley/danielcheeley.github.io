@@ -291,96 +291,125 @@
             </button>
           </div>
         </div>
+        <nav class="home-menu" aria-label="Home window sections">
+          <a href="#story-design">The design</a
+          ><a href="#story-about">About me</a
+          ><a href="#story-goals">My goals</a>
+        </nav>
         <div class="scrollWrapper">
           <div class="mainWindowContent">
-            <h2 id="mainh2">This is my landing page for all my other sites</h2>
-            <div class="row deskHide">
-              <img
-                src="assets/images/me-on-mountains-reframed.png"
-                alt="me1"
-                class="mobileImage deskHide"
-              >
-            </div>
-            <div class="row">
-              <img
-                src="assets/images/me-on-mountains-reframed.png"
-                alt="me1"
-                id="mainImage1"
-                class="mobileHide"
-              >
-              <p class="mainText">
-                <strong>Why These Design Choices?</strong><br >I styled this
-                site to resemble a windows 98 desktop to bring out my creativity
-                and expressiveness. I love designing webpages in unique ways to
-                show that something as simple as web browsing can be fun and
-                interactive. Since the internet is so present in our lives
-                people become increasingly aware at the lack of creative design
-                choices people make. Therefore I have taken it upon myself to
-                make every page I create a different and unique style.
-                <img src="assets/images/d13.gif" alt="" id="stamp" >
+            <header class="home-welcome">
+              <p class="home-location">MY DESKTOP / HOME.HTML</p>
+              <h2 id="mainh2">Welcome to my corner of the web.</h2>
+              <p>
+                A place for my projects, interests, and a little personality.
               </p>
-            </div>
-            <div class="row deskHide">
-              <img
-                src="assets/images/hikePhoto.JPG"
-                alt="hikePhoto"
-                class="mobileImage deskHide"
-              >
-            </div>
-            <div class="row">
-              <p class="mainText">
-                <strong>Who Am I?</strong><br >My name is Daniel Cheeley, and I
-                am very passionate about my hobbies. At the moment, I am
-                learning web/game development, learning to become a pilot,
-                C++/C#/python, circuitry, mechanics, piano, guitar, and 3D
-                modeling. I want to be able to get into the web/game development
-                scene so that I can really boost my professional learning. In
-                the future, I want to be able to turn my hobbies into a career,
-                which is a philosophy I think everyone should have to enjoy what
-                they do.<img
-                  src="assets/images/d114.png"
-                  alt="twilightStamp"
-                  id="stamp2"
+            </header>
+            <article class="row" id="story-design">
+              <figure class="home-photo">
+                <img
+                  src="assets/images/me-on-mountains-reframed.png"
+                  alt="Daniel at a mountain overlook"
+                  id="mainImage1"
                 >
-              </p>
-              <img
-                src="assets/images/hikePhoto.JPG"
-                alt="hikePhoto"
-                id="mainImage2"
-                class="mobileHide"
-              >
-            </div>
-            <div class="row deskHide">
-              <img
-                src="assets/images/Mymotorcyle2.jpeg"
-                alt="me1"
-                class="mobileImage deskHide"
-              >
-            </div>
-            <div class="row">
-              <img
-                src="assets/images/Mymotorcyle2.jpeg"
-                alt="me1"
-                id="mainImage3"
-                class="mobileHide"
-              >
-              <p class="mainText">
-                <strong>What Are My Future Goals?</strong><br >I have a handful
-                of longterm goals that I am reaching toward, each of them are
-                ment to push me to grow in my hobbies. A few of my long term
-                goals include becoming a pilot, making a full fleged game,
-                building my own cpu, and rebuilding my motorcycle. All of these
-                goals push me to keep learning more and help me from buring out.
-                When something goes wrong you use it to learn more about the
-                activity you are doing and grow further than you ever thought
-                you could<img
-                  src="assets/images/d74.jpg"
-                  alt="nirvana"
-                  id="stamp3"
+                <figcaption>A little time outside.</figcaption>
+              </figure>
+              <div class="mainText">
+                <span class="story-label">01 / A little creative freedom</span>
+                <h3>Why this design?</h3>
+                <p>
+                  I styled this page like a Windows 98 desktop because browsing
+                  the web can be fun, personal, and a little unexpected.
+                </p>
+                <p>
+                  I like giving each page its own character. This one is a place
+                  for old-school windows, animated badges, and the things that
+                  make the internet feel handmade.
+                </p>
+                <p>
+                  Drag a window, open My folder to explore the other pages, or
+                  check note.txt for a quick hello. This desktop is meant to be
+                  poked around in.
+                </p>
+                <div class="story-stamps">
+                  <img
+                    src="assets/images/d13.gif"
+                    alt="My Chemical Romance stamp"
+                    id="stamp"
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="row reverse-story" id="story-about">
+              <div class="mainText">
+                <span class="story-label">02 / Behind the screen</span>
+                <h3>Hey, I’m Daniel.</h3>
+                <p>
+                  I’m passionate about my hobbies and learning how things work:
+                  web and game development, aviation, C++, C#, Python,
+                  circuitry, mechanics, piano, guitar, and 3D modeling.
+                </p>
+                <p>
+                  I want to keep growing as a developer and turn the things I
+                  love doing into a career. There’s always something new to
+                  figure out.
+                </p>
+                <div class="story-stamps">
+                  <img
+                    src="assets/images/d114.png"
+                    alt="Twilight stamp"
+                    id="stamp2"
+                  >
+                </div>
+              </div>
+              <figure class="home-photo">
+                <img
+                  src="assets/images/hikePhoto.JPG"
+                  alt="A view along a hiking trail"
+                  id="mainImage2"
                 >
-              </p>
-            </div>
+                <figcaption>Take the scenic route.</figcaption>
+              </figure>
+            </article>
+            <article class="row" id="story-goals">
+              <figure class="home-photo">
+                <img
+                  src="assets/images/Mymotorcyle2.jpeg"
+                  alt="Daniel on his motorcycle"
+                  id="mainImage3"
+                >
+                <figcaption>More than just code.</figcaption>
+              </figure>
+              <div class="mainText">
+                <span class="story-label">03 / Always a work in progress</span>
+                <h3>What’s next?</h3>
+                <p>
+                  Become a pilot. Make a full game. Build my own CPU. Rebuild my
+                  motorcycle.
+                </p>
+                <p>
+                  These long-term goals keep me learning. When something goes
+                  wrong, it’s another chance to understand it better and try
+                  again.
+                </p>
+                <div class="story-stamps">
+                  <img
+                    src="assets/images/d74.jpg"
+                    alt="Nirvana stamp"
+                    id="stamp3"
+                  >
+                </div>
+              </div>
+            </article>
+            <p class="home-signoff">
+              Thanks for stopping by. There’s always something under
+              construction here.
+            </p>
           </div>
+        </div>
+        <div class="home-status">
+          <span>✓ Ready</span><span>3 things about me</span
+          ><span>100% personal</span>
         </div>
       </section>
       <section
@@ -416,23 +445,59 @@
             </button>
           </div>
         </div>
-        <div class="content">
-          <h3>Page Links:</h3>
-          <p>Links to my other sites and other pages</p>
-          <a
-            class="linkBtn"
-            href="https://danielcheeley.github.io/react-portfolio/"
-            >Portfolio</a
-          >
-          <hr >
-          <a class="linkBtn" href="#mainh2">About Me</a>
-          <hr >
-          <a class="linkBtn" href="blog.html">Blog</a>
-          <hr >
-          <a class="linkBtn" href="https://github.com/DanielCheeley">GitHub</a>
-          <hr >
-          <a class="linkBtn" href="index.html">Home Page</a>
+        <div class="content links-content">
+          <header class="links-heading">
+            <h3>Where to next?</h3>
+            <p>Projects, notes, and the rest of my corner of the web.</p>
+          </header>
+          <nav class="links-list" aria-label="My pages">
+            <div class="link-entry">
+              <a
+                class="linkBtn"
+                href="https://danielcheeley.github.io/react-portfolio/"
+                >View my portfolio <span aria-hidden="true">→</span></a
+              >
+              <p>
+                Explore my development projects and the thinking behind them.
+              </p>
+            </div>
+            <div class="link-entry">
+              <a class="linkBtn" href="#mainh2"
+                >A little about me <span aria-hidden="true">→</span></a
+              >
+              <p>
+                Meet the person behind the page: my interests, ideas, and goals.
+              </p>
+            </div>
+            <div class="link-entry">
+              <a class="linkBtn" href="blog.html"
+                >Read the blog <span aria-hidden="true">→</span></a
+              >
+              <p>
+                Thoughts, discoveries, and things I’m learning along the way.
+              </p>
+            </div>
+            <div class="link-entry">
+              <a class="linkBtn" href="https://github.com/DanielCheeley"
+                >Browse my GitHub <span aria-hidden="true">↗</span></a
+              >
+              <p>
+                Take a look at my code and explore the projects in my
+                repositories.
+              </p>
+            </div>
+            <div class="link-entry">
+              <a class="linkBtn" href="index.html"
+                >Back to the home page <span aria-hidden="true">→</span></a
+              >
+              <p>
+                Return to my personal workspace, photo deck, and interactive
+                console.
+              </p>
+            </div>
+          </nav>
         </div>
+        <div class="links-status">5 destinations / ready to explore</div>
       </section>
 
       <section

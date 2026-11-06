@@ -179,52 +179,153 @@ img {
 .content {
   padding: 12px;
 }
+/* Home keeps its original blue frames, personal photos, and tilted stamps. */
+.home-menu {
+  display: flex;
+  gap: 22px;
+  padding: 8px 14px;
+  border-bottom: 1px solid #808080;
+  font-size: 11px;
+}
+.home-menu a {
+  color: #222;
+  text-decoration: none;
+}
+.home-menu a:hover {
+  text-decoration: underline;
+}
 .mainWindowContent {
-  padding: 15px;
+  padding: 16px;
+  background: #f1f0eb;
+}
+.home-welcome {
+  padding: 13px 16px;
+  text-align: center;
+  border: 1px solid #a4a8bd;
+  border-bottom: 3px solid #000080;
+  background: linear-gradient(#fff, #e6e9f3);
+  margin-bottom: 17px;
+}
+.home-location {
+  margin: 0;
+  color: #73788c;
+  font:
+    9px/1.6 "Courier New",
+    monospace;
+  letter-spacing: 0.12em;
 }
 #mainh2 {
-  text-align: center;
-  font-size: 23px;
-  margin: 8px 0 24px;
+  color: #151555;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin: 10px 0;
+}
+.home-welcome > p:last-child {
+  margin: 0;
+  font-size: 12px;
+  color: #5f6376;
 }
 .row {
   display: flex;
-  align-items: start;
-  gap: 20px;
-  margin-bottom: 22px;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 17px;
+  scroll-margin-top: 20px;
 }
-.row > img {
-  width: 30%;
-  height: auto;
-  border: 3px solid;
+.home-photo {
+  flex: 0 0 29%;
+  min-width: 0;
+  margin: 0;
+  padding: 5px;
+  border: 2px solid;
   border-image: linear-gradient(90deg, darkblue, #5c5cc9) 1;
+  background: #fff;
+  box-shadow: 3px 3px #c7c8d4;
+}
+.home-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+#mainImage2 {
+  object-position: 50% 50%;
+}
+#mainImage3 {
+  object-position: 50% 40%;
+}
+.home-photo figcaption {
+  padding: 6px 3px 3px;
+  color: #676a7b;
+  font:
+    italic 11px Georgia,
+    serif;
+  text-align: center;
 }
 .mainText {
   flex: 1;
   min-width: 0;
-  margin: 0;
-  padding: 10px;
-  border: 2px solid;
-  border-image: linear-gradient(90deg, darkblue, #5c5cc9) 1;
-  line-height: 1.5;
+  padding: 14px;
+  border: 1px solid #a6a7c5;
+  border-left: 3px solid #000080;
+  background: #fffdfa;
 }
-.mainText strong {
-  display: inline-block;
-  margin-bottom: 6px;
+.story-label {
+  display: block;
+  color: #7b7e94;
+  font:
+    9px/1.7 "Courier New",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
-#stamp,
-#stamp2,
-#stamp3 {
-  width: 120px;
-  max-width: 55%;
+.mainText h3 {
+  margin: 6px 0 10px;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #1c1c5b;
+}
+.mainText p {
+  margin: 0 0 10px;
+  color: #3e3e47;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.story-stamps {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 4px;
+  margin-top: -3px;
+}
+.story-stamps img {
+  width: 90px;
+  max-width: 50%;
   height: auto;
-  float: right;
-  margin: 14px 5px 5px 12px;
-  transform: rotate(7deg);
+  transform: rotate(6deg);
 }
 #stamp2 {
-  float: left;
-  transform: rotate(-7deg);
+  transform: rotate(-6deg);
+}
+.home-signoff {
+  padding-top: 15px;
+  border-top: 1px dashed #b9bbc8;
+  color: #73768a;
+  font:
+    10px/1.7 "Courier New",
+    monospace;
+  text-align: center;
+}
+.home-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  font-size: 10px;
+  color: #555;
+  border-top: 1px solid #808080;
 }
 /* Compact badges share a row; extra-wide banners get the full width. */
 .blinkies {
@@ -276,29 +377,102 @@ img {
     transform: translateX(-50%);
   }
 }
+/* Compact early-web buttons, with descriptions outside the clickable surface. */
+.links-content {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px;
+  gap: 18px;
+}
+.links-heading h3 {
+  margin: 0 0 7px;
+  font-size: 18px;
+  color: #17174f;
+  letter-spacing: -0.02em;
+}
+.links-heading p {
+  margin: 0;
+  color: #666;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.links-list {
+  display: grid;
+  grid-template-rows: repeat(5, minmax(min-content, 1fr));
+  gap: 15px;
+  flex: 1;
+  min-height: 460px;
+}
+.link-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.link-entry p {
+  margin: 0;
+  padding-inline: 3px;
+  color: #555;
+  font-size: 11px;
+  line-height: 1.6;
+}
 .linkBtn {
+  position: relative;
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 11px 12px;
-  margin-block: 18px;
-  border: 1px solid #0059b3;
-  border-radius: 25px;
-  background: linear-gradient(#c7edff 0%, #66ccff 45%, #0073e6 100%);
+  padding: 12px 29px 12px 12px;
+  border: 1px solid #1c548f;
+  border-radius: 18px;
+  background: linear-gradient(
+    #d6efff 0%,
+    #67b5ed 15%,
+    #378dce 48%,
+    #206db1 51%,
+    #0e5298 100%
+  );
   color: #fff;
-  font-size: 17px;
-  font-weight: bold;
-  text-shadow: 0 -1px #0005;
+  font:
+    bold 14px/1.2 Tahoma,
+    sans-serif;
+  text-shadow: 0 1px 1px #00396d;
   box-shadow:
-    inset 0 1px 2px #fff,
-    0 3px 6px #0004;
+    inset 0 1px #fff,
+    inset 0 -1px #073b7380,
+    0 2px 2px #0002;
+}
+.linkBtn span {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font:
+    14px/1 Tahoma,
+    sans-serif;
+  color: #e6f4ff;
 }
 .linkBtn:hover {
-  background: linear-gradient(#ddf4ff, #0099ff);
+  background: linear-gradient(
+    #effaff,
+    #8bcefa 15%,
+    #46a1e2 48%,
+    #277cbe 51%,
+    #1564ad
+  );
+  border-color: #133e74;
 }
-hr {
-  border: 0;
-  border-top: 1px solid #aaa;
+.linkBtn:active {
+  background: linear-gradient(#17528b, #317fbd);
+  box-shadow: inset 0 2px 3px #00336480;
+}
+.links-status {
+  flex-shrink: 0;
+  padding: 6px 9px;
+  border-top: 1px solid #888;
+  color: #555;
+  font:
+    9px/1.5 Tahoma,
+    sans-serif;
+  text-align: center;
 }
 .is-floating {
   position: fixed;
@@ -403,9 +577,6 @@ dialog::backdrop {
   .mainText {
     font-size: 13px;
   }
-  .linkBtn {
-    font-size: 15px;
-  }
 }
 @media (max-width: 800px) {
   body {
@@ -471,17 +642,33 @@ dialog::backdrop {
     flex-direction: column;
     gap: 14px;
   }
-  .row > img {
-    width: 100%;
-    max-width: 300px;
-    max-height: 240px;
-    object-fit: cover;
+  .home-photo {
+    flex: auto;
+    width: min(100%, 260px);
     align-self: center;
+  }
+  .home-photo img {
+    aspect-ratio: 4 / 3;
+  }
+  .reverse-story .home-photo {
+    order: -1;
   }
   .mainText {
     width: 100%;
-    font-size: 13px;
-    padding: 10px;
+    padding: 16px;
+  }
+  .home-menu {
+    justify-content: center;
+    gap: 20px;
+  }
+  .home-status {
+    font-size: 9px;
+  }
+  .home-welcome {
+    padding: 18px 12px;
+  }
+  .mainText h3 {
+    font-size: 20px;
   }
   .taskbar {
     flex-wrap: wrap;

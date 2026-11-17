@@ -327,6 +327,13 @@ img {
   color: #555;
   border-top: 1px solid #808080;
 }
+#media-window .content {
+  scrollbar-width: none;
+}
+#media-window .content:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: -4px;
+}
 /* Compact badges share a row; extra-wide banners get the full width. */
 .blinkies {
   display: grid;
@@ -352,7 +359,7 @@ img {
   height: auto;
 }
 #newsTitle {
-  margin-bottom: 8px;
+  margin: 8px 0 4px;
   font-size: 14px;
 }
 .marqueeText {
@@ -366,6 +373,7 @@ img {
   animation: marquee 120s linear infinite;
 }
 .marquee-content {
+  margin-block: 4px;
   padding-right: 1rem;
   font-size: 12px;
 }
@@ -420,7 +428,7 @@ img {
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 12px 29px 12px 12px;
+  padding: 12px 29px;
   border: 1px solid #1c548f;
   border-radius: 18px;
   background: linear-gradient(
@@ -621,9 +629,6 @@ dialog::backdrop {
   }
   .window {
     order: -1;
-  }
-  .windowSide1 .content {
-    max-height: 300px;
   }
   .title-bar {
     touch-action: auto;

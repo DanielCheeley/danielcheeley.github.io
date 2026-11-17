@@ -7,11 +7,11 @@ let historyIndex = 0;
 // Each destination is a link the visitor can choose to open.
 const destinations = {
   projects: [
-    "Development portfolio ↗",
+    "Development portfolio",
     "https://danielcheeley.github.io/react-portfolio/",
   ],
   blog: ["Read the blog →", "blog.html"],
-  github: ["Explore my GitHub ↗", "https://github.com/DanielCheeley"],
+  github: ["Explore my GitHub", "https://github.com/DanielCheeley"],
   retro: ["Enter retro mode →", "retro.html"],
 };
 const responses = {
